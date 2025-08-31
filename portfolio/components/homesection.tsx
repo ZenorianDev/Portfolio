@@ -3,8 +3,7 @@ export default function HomeSection() {
     <main className="font-sans">
       {/* Navbar */}
       <nav className="fixed top-0 left-0 w-full bg-gray-900 text-white px-8 py-4 flex justify-between items-center shadow-md z-50">
-        <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
-          <div className="text-2xl font-bold text-white">R</div>
+        <div className="text-2xl font-bold text-white">R</div>
         <h1 className="text-xl font-bold">My Portfolio</h1>
         <ul className="flex space-x-6">
           <li><a href="#homesection">Home</a></li>
@@ -12,7 +11,6 @@ export default function HomeSection() {
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        </div>
       </nav>
 
       {/* Home Section */}
