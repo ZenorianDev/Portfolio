@@ -2,15 +2,16 @@ export default function HomeSection() {
   return (
     <main className="font-sans">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full bg-gray-900 text-white z-50 shadow-md">
+      <nav className="fixed top-0 left-0 w-full bg-gray-900 text-white px-8 py-4 flex justify-between items-center shadow-md z-50">
         <div className="max-w-6xl mx-auto flex justify-between items-center p-4">
-          <div className="text-2xl font-bold text-green-500">R</div>
-          <ul className="flex gap-6">
-            <li><a href="#homesection" className="hover:text-green-500">Home</a></li>
-            <li><a href="#about" className="hover:text-green-500">About</a></li>
-            <li><a href="#projects" className="hover:text-green-500">Projects</a></li>
-            <li><a href="#contact" className="hover:text-green-500">Contact</a></li>
-          </ul>
+          <div className="text-2xl font-bold text-white">R</div>
+        <h1 className="text-xl font-bold">My Portfolio</h1>
+        <ul className="flex space-x-6">
+          <li><a href="#homesection">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
         </div>
       </nav>
 
@@ -21,7 +22,7 @@ export default function HomeSection() {
       >
         <div className="max-w-xl p-8 text-center md:text-left">
           <h1 className="text-5xl font-extrabold leading-tight">
-            I'M <span className="text-green-500">REANNE LORRAINE MARTINEZ</span>
+            <span className="text-gray-900">REANNE LORRAINE MARTINEZ</span>
           </h1>
           <p className="mt-4 text-xl">UX/UI Designer & Web Developer</p>
         </div>
@@ -35,37 +36,49 @@ export default function HomeSection() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="h-screen flex items-center justify-center bg-gray-100">
-        <div className="max-w-3xl p-8 text-center">
-          <h2 className="text-3xl font-bold">About Me</h2>
-          <p className="mt-4 text-gray-700">
-            Short bio about you, your skills, and experience.
-          </p>
-        </div>
+      <section
+        id="about"
+        className="h-screen flex flex-col justify-center items-center bg-gray-100 text-gray-900"
+      >
+        <h2 className="text-4xl font-bold mb-4">About Me</h2>
+        <p className="max-w-2xl text-center">
+          I am a passionate designer and developer focused on creating beautiful,
+          user-friendly digital experiences. This section can include your bio,
+          skills, and experience highlights.
+        </p>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="h-screen flex items-center justify-center bg-white">
-        <div className="max-w-3xl p-8">
-          <h2 className="text-3xl font-bold">Projects</h2>
-          <ul className="mt-4 list-disc list-inside text-gray-700">
-            <li>Project 1</li>
-            <li>Project 2</li>
-          </ul>
+      <section
+        id="projects"
+        className="h-screen flex flex-col justify-center items-center bg-white text-gray-900"
+      >
+        <h2 className="text-4xl font-bold mb-4">Projects</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-3/4">
+          <div className="p-6 border rounded-lg shadow">Project 1</div>
+          <div className="p-6 border rounded-lg shadow">Project 2</div>
+          <div className="p-6 border rounded-lg shadow">Project 3</div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="h-screen flex items-center justify-center bg-gray-200">
-        <div className="max-w-xl p-8 text-center">
-          <h2 className="text-3xl font-bold">Contact</h2>
-          <p className="mt-4">Reach me at <a href="mailto:you@email.com" className="text-green-500">you@email.com</a></p>
-        </div>
+      <section
+        id="contact"
+        className="h-screen flex flex-col justify-center items-center bg-gray-200 text-gray-900"
+      >
+        <h2 className="text-4xl font-bold mb-4">Contact Me</h2>
+        <p className="mb-4">Let's work together! Reach me via email:</p>
+        <a
+          href="mailto:yourname@example.com"
+          className="px-6 py-3 bg-gray-900 text-white rounded-md hover:bg-gray-700 transition"
+        >
+          Say Hello
+        </a>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white text-center p-4">
-        © {new Date().getFullYear()} Your Name. All Rights Reserved.
+      <footer className="bg-gray-900 text-white py-6 text-center">
+        <p>© {new Date().getFullYear()} Reanne Martinez | All rights reserved.</p>
       </footer>
     </main>
   );
