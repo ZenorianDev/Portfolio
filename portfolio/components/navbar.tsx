@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-gray-900 text-white px-8 py-4 flex justify-between items-center shadow-md z-50">
-      <h1 className="text-xl font-bold">My Portfolio</h1>
+      <h1 className="text-xl font-bold">Reanne Lorraine Martinez</h1>
       <ul className="flex space-x-6">
         {["home", "about", "projects", "contact"].map((section) => (
           <li key={section}>
