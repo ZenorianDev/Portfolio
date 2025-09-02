@@ -1,7 +1,7 @@
 // app/page.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react"; // ✅ added useMemo
 import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import Homepage from "@/components/homepage";
@@ -11,56 +11,54 @@ import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 
 export default function Page() {
-  const [activeSection, setActiveSection] = useState("homepage");
-  const [navMode, setNavMode] = useState<"center" | "side">("center");
+  const [activeSection, setActiveSection] = useState<string>("homepage");
+  const [navMode, setNavMode] = useState<"top" | "side">("top");
 
-  // Watch which section is in view
+  // Intersection Observer
   useEffect(() => {
-    const sections = document.querySelectorAll("section[data-observe]");
-    const observer = new IntersectionObserver(
+    const obs = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActiveSection(e.target.id);
         });
       },
-      { threshold: 0.55 }
+      { threshold: 0.56 }
     );
 
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+    document.querySelectorAll("section[data-observe]").forEach((s) =>
+      obs.observe(s)
+    );
+    return () => obs.disconnect();
   }, []);
 
-  // Toggle navbar layout on scroll
+  // Toggle navbar
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > window.innerHeight * 0.8) {
-        setNavMode("side");
-      } else {
-        setNavMode("center");
-      }
+    const onScroll = () => {
+      if (window.scrollY > window.innerHeight * 0.8) setNavMode("side");
+      else setNavMode("top");
     };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Section-based background colors
-  const bgColors: Record<string, string> = {
-    homepage: "from-gray-950 via-black to-zinc-900",
-    about: "from-indigo-950 via-indigo-900 to-purple-900",
-    projects: "from-emerald-950 via-emerald-900 to-green-900",
-    contact: "from-fuchsia-950 via-pink-900 to-rose-900",
-  };
+  const bg = useMemo<Record<string, string>>(
+    () => ({
+      homepage: "from-gray-950 via-black to-zinc-900",
+      about: "from-indigo-950 via-indigo-900 to-purple-900",
+      projects: "from-emerald-950 via-emerald-900 to-green-900",
+      contact: "from-fuchsia-950 via-pink-900 to-rose-900",
+    }),
+    []
+  );
 
   return (
-    <div className="relative min-h-screen text-zinc-100">
-      {/* Background transition */}
+    <div className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth text-zinc-100">
+      {/* animated background */}
       <motion.div
         key={activeSection}
         aria-hidden
-        className={`pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br ${bgColors[activeSection]}`}
+        className={`pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br ${bg[activeSection]}`}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -72,7 +70,7 @@ export default function Page() {
         <section
           id="homepage"
           data-observe
-          className="min-h-screen px-6 flex items-center justify-center"
+          className="min-h-screen snap-start flex items-center justify-center px-6"
         >
           <Homepage />
         </section>
@@ -80,7 +78,7 @@ export default function Page() {
         <section
           id="about"
           data-observe
-          className="min-h-screen px-6 flex items-center justify-center"
+          className="min-h-screen snap-start flex items-center justify-center px-6"
         >
           <About />
         </section>
@@ -88,7 +86,7 @@ export default function Page() {
         <section
           id="projects"
           data-observe
-          className="min-h-screen px-6 flex items-center justify-center"
+          className="min-h-screen snap-start flex items-center justify-center px-6"
         >
           <Projects />
         </section>
@@ -96,7 +94,7 @@ export default function Page() {
         <section
           id="contact"
           data-observe
-          className="min-h-screen px-6 flex items-center justify-center"
+          className="min-h-screen snap-start flex items-center justify-center px-6"
         >
           <Contact />
         </section>
