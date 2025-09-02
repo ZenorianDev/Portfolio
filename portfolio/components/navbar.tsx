@@ -1,50 +1,30 @@
+// components/navbar.tsx
 "use client";
 
-import { motion } from "framer-motion"; // ✅ import motion
+import { motion } from "framer-motion";
 import clsx from "clsx";
 
 type Props = { activeSection: string; navMode: "top" | "side" };
 
-const variants = {
-  top: { x: 0, y: 0, opacity: 1 },
-  side: { x: 0, y: 0, opacity: 1 },
-};
-
 const links = [
-  { id: "homepage", label: "Home" },
   { id: "about", label: "About" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ];
 
 export default function Navbar({ activeSection, navMode }: Props) {
-  const isSide = navMode === "side";
+  // only show floating nav if in "side" mode
+  if (navMode === "top") return null;
 
   return (
     <motion.nav
-      variants={variants}
-      animate={isSide ? "side" : "top"}
-      className={clsx(
-        "fixed z-40",
-        isSide
-          ? "left-6 top-1/2 -translate-y-1/2 hidden md:block"
-          : "left-0 top-0 w-full"
-      )}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      className="fixed right-8 top-6 z-40"
     >
-      <div
-        className={clsx(
-          "backdrop-blur bg-white/5 rounded-2xl shadow-lg",
-          isSide
-            ? "p-2"
-            : "mx-auto mt-4 max-w-5xl p-3"
-        )}
-      >
-        <ul
-          className={clsx(
-            "flex gap-3 text-sm font-medium",
-            isSide ? "flex-col" : "justify-center"
-          )}
-        >
+      <div className="backdrop-blur-md bg-black/30 rounded-2xl shadow-lg px-4 py-2">
+        <ul className="flex gap-4 text-sm font-medium">
           {links.map((l) => (
             <li key={l.id}>
               <a
