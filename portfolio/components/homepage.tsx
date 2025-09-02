@@ -14,9 +14,9 @@ export default function Homepage() {
             transition={{ duration: 0.6 }}
             className="text-5xl sm:text-6xl font-extrabold leading-tight"
           >
-            Kervin Curt
+            Reanne Lorraine
             <br />
-            Delos Reyes
+            Martinez
           </motion.h1>
 
           <motion.p
