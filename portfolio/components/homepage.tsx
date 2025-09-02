@@ -14,15 +14,15 @@ export default function Homepage() {
       {/* Background image */}
       <div className="absolute inset-0 -z-10">
         <img
-          src="/me.jpg" // replace with your actual image path
-          alt="Kervin Curt Delos Reyes"
+          src="zenorian.png"
+          alt="Reanne Lorraine Martinez"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/70" /> {/* Overlay */}
       </div>
 
       {/* Left content */}
-      <div className="relative z-10 w-full max-w-5xl px-6 md:px-12">
+      <div className="relative z-6w-full max-w-5xl px-6 md:px-12">
         <div className="flex flex-col gap-6 text-left max-w-lg">
           {/* Name */}
           <motion.h1
@@ -31,7 +31,7 @@ export default function Homepage() {
             transition={{ duration: 0.6 }}
             className="text-5xl sm:text-6xl font-extrabold leading-tight text-white"
           >
-            Kervin Curt <br /> Delos Reyes
+            Reanne Lorraine <br /> Martinez
           </motion.h1>
 
           {/* Paragraph */}
