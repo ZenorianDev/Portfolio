@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <section id="homesection">
+      <section id="homepage">
         <HomePage />
       </section>
       <section id="about">
