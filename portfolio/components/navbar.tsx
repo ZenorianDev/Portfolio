@@ -1,52 +1,65 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import clsx from "clsx";
 
-export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("home");
+type NavbarProps = {
+  activeSection: string;
+  navMode: "top" | "side";
+};
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["home", "about", "projects", "contact"];
-      let current = "home";
+const sections = [
+  { id: "homepage", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+  { id: "contact", label: "Contact" },
+];
 
-      sections.forEach((id) => {
-        const section = document.getElementById(id);
-        if (section) {
-          const rect = section.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            current = id;
-          }
-        }
-      });
-
-      setActiveSection(current);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+export default function Navbar({ activeSection, navMode }: NavbarProps) {
+  const isSide = navMode === "side";
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gray-900 text-white px-8 py-4 flex justify-between items-center shadow-md z-50">
-      <h1 className="text-xl font-bold">Reanne Lorraine Martinez</h1>
-      <ul className="flex space-x-6">
-        {["home", "about", "projects", "contact"].map((section) => (
-          <li key={section}>
-            <Link
-              href={`#${section}`}
-              className={`transition-colors ${
-                activeSection === section
-                  ? "text-green-400 font-semibold"
-                  : "text-gray-300 hover:text-white"
-              }`}
-            >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <motion.nav
+      className={clsx(
+        "fixed z-40",
+        isSide ? "left-6 top-1/2 -translate-y-1/2" : "top-0 left-0 w-full"
+      )}
+    >
+      <div
+        className={clsx(
+          "backdrop-blur bg-white/5 rounded-2xl shadow-lg",
+          isSide ? "p-2" : "mx-auto mt-4 max-w-5xl p-3"
+        )}
+      >
+        <ul
+          className={clsx(
+            "flex gap-3 text-sm font-medium",
+            isSide ? "flex-col" : "justify-center"
+          )}
+        >
+          {sections.map(({ id, label }) => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document
+                    .getElementById(id)
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className={clsx(
+                  "px-3 py-2 rounded-lg transition-colors",
+                  activeSection === id
+                    ? "bg-white/20 text-white"
+                    : "text-zinc-300 hover:text-white"
+                )}
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </motion.nav>
   );
 }

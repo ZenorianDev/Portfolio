@@ -1,15 +1,20 @@
 export default function Projects() {
   return (
-    <section
-      id="projects"
-      className="h-screen flex flex-col justify-center items-center bg-white text-gray-900"
-    >
-      <h2 className="text-4xl font-bold mb-4">Projects</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-3/4">
-        <div className="p-6 border rounded-lg shadow">Project 1</div>
-        <div className="p-6 border rounded-lg shadow">Project 2</div>
-        <div className="p-6 border rounded-lg shadow">Project 3</div>
+    <div className="max-w-4xl">
+      <h2 className="text-3xl font-bold text-center">Projects</h2>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        {[1, 2, 3].map((num) => (
+          <div
+            key={num}
+            className="rounded-xl bg-white/10 p-4 text-center ring-1 ring-white/20"
+          >
+            <h3 className="font-semibold">Project {num}</h3>
+            <p className="text-sm text-zinc-300">
+              A short description of project {num}.
+            </p>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

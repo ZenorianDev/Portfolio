@@ -1,17 +1,14 @@
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="h-screen flex flex-col justify-center items-center bg-gray-200 text-gray-900"
-    >
-      <h2 className="text-4xl font-bold mb-4">Contact Me</h2>
-      <p className="mb-4">Let’s work together! Reach me via email:</p>
+    <div className="max-w-xl text-center">
+      <h2 className="text-3xl font-bold">Get in Touch</h2>
+      <p className="mt-3 text-zinc-300">Feel free to reach out anytime!</p>
       <a
-        href="mailto:yourname@example.com"
-        className="px-6 py-3 bg-gray-900 text-white rounded-md hover:bg-gray-700 transition"
+        href="mailto:you@email.com"
+        className="mt-6 inline-block rounded-lg bg-white/10 px-4 py-2 font-medium ring-1 ring-white/20 hover:bg-white/20"
       >
-        Say Hello
+        Email Me
       </a>
-    </section>
+    </div>
   );
 }

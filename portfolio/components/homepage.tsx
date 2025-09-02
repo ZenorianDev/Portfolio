@@ -1,7 +1,10 @@
-export default function HomePage() {
+export default function Homepage() {
   return (
-    <section className="h-screen flex items-center justify-center">
-      <h1 className="text-5xl font-bold">Reanne Lorraine Martinez</h1>
-    </section>                                
+    <div className="text-center">
+      <h1 className="text-5xl font-bold">Welcome to My Portfolio</h1>
+      <p className="mt-4 text-lg text-zinc-300">
+        A quick preview about who I am.
+      </p>
+    </div>
   );
 }
