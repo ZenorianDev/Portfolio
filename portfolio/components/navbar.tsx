@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 type NavbarProps = {
   activeSection: string;
-  navMode: "top" | "side";
+  navMode: "center" | "side";
 };
 
 const sections = [
@@ -22,7 +22,7 @@ export default function Navbar({ activeSection, navMode }: NavbarProps) {
     <motion.nav
       className={clsx(
         "fixed z-40",
-        isSide ? "left-6 top-1/2 -translate-y-1/2" : "top-0 left-0 w-full"
+        isSide ? "right-6 top-1/2 -translate-y-1/2" : "top-0 right-0 w-full"
       )}
     >
       <div

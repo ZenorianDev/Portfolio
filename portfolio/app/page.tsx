@@ -12,7 +12,7 @@ import Footer from "@/components/footer";
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("homepage");
-  const [navMode, setNavMode] = useState<"top" | "side">("top");
+  const [navMode, setNavMode] = useState<"center" | "side">("center");
 
   // Watch which section is in view
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function Page() {
       if (window.scrollY > window.innerHeight * 0.8) {
         setNavMode("side");
       } else {
-        setNavMode("top");
+        setNavMode("center");
       }
     };
     handleScroll();
