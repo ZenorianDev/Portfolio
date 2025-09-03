@@ -70,9 +70,6 @@ export default function HomePage() {
         />
       </AnimatePresence>
 
-      {/* Navbar */}
-      <Navbar active={active} showSide={showSide} />
-
       {/* Content */}
       <div className="mx-auto max-w-6xl px-4 md:pl-64">
         <section

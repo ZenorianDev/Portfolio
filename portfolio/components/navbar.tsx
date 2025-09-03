@@ -2,8 +2,9 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { Github, Facebook, Linkedin, Youtube } from "lucide-react";
 
-const SECTION_ORDER = ["home", "about", "projects", "contact"] as const;
+const SECTION_ORDER = ["about", "projects", "contact", "resume"] as const;
 type SectionId = (typeof SECTION_ORDER)[number];
 
 export default function Navbar({
@@ -15,58 +16,80 @@ export default function Navbar({
 }) {
   return (
     <>
-      {/* Top navbar */}
-      <motion.div
-        initial={{ y: -40, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -40, opacity: 0 }}
-        transition={{ duration: 0.25 }}
-        className="sticky top-0 z-40"
-      >
-        <nav className="mx-auto flex max-w-6xl items-center justify-between bg-neutral-950/70 px-4 py-3 backdrop-blur-md">
-          <div className="font-semibold">YourLogo</div>
-          <ul className="flex gap-6">
-            {SECTION_ORDER.map((id) => (
-              <li key={id}>
-                <a
-                  href={`#${id}`}
-                  className={`capitalize ${
-                    active === id
-                      ? "text-white underline"
-                      : "text-neutral-300 hover:text-white"
-                  }`}
-                >
-                  {id}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </motion.div>
+      {/* Initial centered layout */}
+      <AnimatePresence>
+        {!showSide && (
+          <motion.div
+            key="centered"
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -40 }}
+            transition={{ duration: 0.5 }}
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-8"
+          >
+            {/* Logo top (small) */}
+            <div className="absolute top-6 left-6 font-bold text-xl">jp</div>
 
-      {/* Side navbar (on scroll) */}
+            {/* Nav links */}
+            <ul className="flex flex-col items-center gap-4 text-lg font-medium">
+              {SECTION_ORDER.map((id) => (
+                <li key={id}>
+                  <a
+                    href={`#${id}`}
+                    className={`capitalize ${
+                      active === id
+                        ? "text-white underline"
+                        : "text-neutral-300 hover:text-white"
+                    }`}
+                  >
+                    {id}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            {/* Socials stacked */}
+            <div className="flex flex-col gap-4">
+              <a href="https://github.com" target="_blank">
+                <Github className="h-5 w-5 text-neutral-300 hover:text-white" />
+              </a>
+              <a href="https://facebook.com" target="_blank">
+                <Facebook className="h-5 w-5 text-neutral-300 hover:text-white" />
+              </a>
+              <a href="https://linkedin.com" target="_blank">
+                <Linkedin className="h-5 w-5 text-neutral-300 hover:text-white" />
+              </a>
+              <a href="https://youtube.com" target="_blank">
+                <Youtube className="h-5 w-5 text-neutral-300 hover:text-white" />
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Split state (after scroll) */}
       <AnimatePresence>
         {showSide && (
-          <motion.aside
-            key="side"
-            initial={{ x: -120, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -120, opacity: 0 }}
-            className="fixed left-0 top-0 hidden h-screen w-56 border-r border-white/10 bg-black/40 backdrop-blur md:block"
-          >
-            <div className="flex h-full flex-col">
-              <div className="border-b border-white/10 px-5 py-4 font-semibold">
-                YourLogo
-              </div>
-              <ul className="flex-1 space-y-1 px-3 py-4">
+          <>
+            {/* Nav on left with logo */}
+            <motion.aside
+              key="nav-left"
+              initial={{ x: -120, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -120, opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="fixed left-0 top-0 z-40 hidden h-screen w-40 flex-col items-start justify-start border-r border-white/10 bg-black/40 p-6 backdrop-blur md:flex"
+            >
+              <div className="mb-6 font-bold text-xl">jp</div>
+              <ul className="space-y-3 text-sm">
                 {SECTION_ORDER.map((id) => (
                   <li key={id}>
                     <a
                       href={`#${id}`}
-                      className={`block rounded-lg px-3 py-2 text-sm ${
+                      className={`capitalize ${
                         active === id
-                          ? "bg-white text-black"
-                          : "text-neutral-300 hover:bg-white/10"
+                          ? "text-white underline"
+                          : "text-neutral-300 hover:text-white"
                       }`}
                     >
                       {id}
@@ -74,11 +97,31 @@ export default function Navbar({
                   </li>
                 ))}
               </ul>
-              <div className="px-3 py-4 text-xs text-neutral-400">
-                Socials here
-              </div>
-            </div>
-          </motion.aside>
+            </motion.aside>
+
+            {/* Socials bottom-right */}
+            <motion.div
+              key="socials-right"
+              initial={{ x: 120, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 120, opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="fixed bottom-6 right-6 z-40 flex flex-col items-center gap-4"
+            >
+              <a href="https://github.com" target="_blank">
+                <Github className="h-5 w-5 text-neutral-300 hover:text-white" />
+              </a>
+              <a href="https://facebook.com" target="_blank">
+                <Facebook className="h-5 w-5 text-neutral-300 hover:text-white" />
+              </a>
+              <a href="https://linkedin.com" target="_blank">
+                <Linkedin className="h-5 w-5 text-neutral-300 hover:text-white" />
+              </a>
+              <a href="https://youtube.com" target="_blank">
+                <Youtube className="h-5 w-5 text-neutral-300 hover:text-white" />
+              </a>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
