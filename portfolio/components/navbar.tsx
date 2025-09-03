@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Facebook, Linkedin, Youtube } from "lucide-react";
 
-const SECTION_ORDER = ["home", "about", "projects", "contact", "resume"] as const;
+const SECTION_ORDER = ["home", "about", "projects", "contact"] as const;
 type SectionId = (typeof SECTION_ORDER)[number];
 
 export default function Navbar({
@@ -29,7 +29,7 @@ export default function Navbar({
         transition={{ duration: 0.4 }}
         className="fixed top-6 left-6 z-50 font-bold text-xl"
       >
-        jp
+        R
       </motion.div>
 
       <AnimatePresence mode="wait">
@@ -126,9 +126,6 @@ function SocialLinks() {
       </a>
       <a href="https://linkedin.com" target="_blank">
         <Linkedin className="h-5 w-5 text-neutral-300 hover:text-white" />
-      </a>
-      <a href="https://youtube.com" target="_blank">
-        <Youtube className="h-5 w-5 text-neutral-300 hover:text-white" />
       </a>
     </>
   );
