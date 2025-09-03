@@ -1,4 +1,3 @@
-// File: /app/page.tsx
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
@@ -8,13 +7,22 @@ import About from "@/components/about";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
-import { SECTION_ORDER, SectionId, SECTION_BG } from "@/lib/sections";
+
+const SECTION_ORDER = ["home", "about", "projects", "contact", "resume"] as const;
+type SectionId = (typeof SECTION_ORDER)[number];
+
+const SECTION_BG: Record<SectionId, string> = {
+  home: "linear-gradient(to bottom, #111, #000)",
+  about: "linear-gradient(to bottom, #1a1a1a, #000)",
+  projects: "linear-gradient(to bottom, #222, #000)",
+  contact: "linear-gradient(to bottom, #2a2a2a, #000)",
+  resume: "linear-gradient(to bottom, #333, #000)",
+};
 
 export default function HomePage() {
   const [active, setActive] = useState<SectionId>("home");
   const [showSide, setShowSide] = useState(false);
 
-  // detect scroll → toggle side layout
   useEffect(() => {
     const onScroll = () => {
       setShowSide(window.scrollY > window.innerHeight * 0.6);
@@ -23,7 +31,6 @@ export default function HomePage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // detect which section is active
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -48,7 +55,6 @@ export default function HomePage() {
 
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      {/* background */}
       <AnimatePresence mode="wait">
         <motion.div
           key={bg}
@@ -61,19 +67,15 @@ export default function HomePage() {
         />
       </AnimatePresence>
 
-      {/* navbar */}
       <Navbar active={active} showSide={showSide} />
 
-      {/* sections */}
       <div className="mx-auto max-w-6xl px-4 md:pl-64">
         <section
           id="home"
           className="min-h-[90vh] grid place-items-center py-24 text-center"
         >
           <div>
-            <h1 className="mb-4 text-5xl font-bold text-white">
-              Your Name
-            </h1>
+            <h1 className="mb-4 text-5xl font-bold text-white">Your Name</h1>
             <p className="mb-6 text-neutral-300">
               Brief professional intro goes here.
             </p>

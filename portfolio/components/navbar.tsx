@@ -1,9 +1,10 @@
-// File: /components/navbar.tsx
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Facebook, Linkedin, Youtube } from "lucide-react";
-import { SECTION_ORDER, SectionId } from "@/lib/sections";
+
+const SECTION_ORDER = ["home", "about", "projects", "contact", "resume"] as const;
+type SectionId = (typeof SECTION_ORDER)[number];
 
 export default function Navbar({
   active,
@@ -22,7 +23,6 @@ export default function Navbar({
 
   return (
     <>
-      {/* Logo */}
       <motion.div
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
@@ -32,7 +32,6 @@ export default function Navbar({
         jp
       </motion.div>
 
-      {/* Nav links */}
       <AnimatePresence mode="wait">
         {!showSide ? (
           <motion.ul
@@ -87,7 +86,6 @@ export default function Navbar({
         )}
       </AnimatePresence>
 
-      {/* Socials */}
       <AnimatePresence mode="wait">
         {!showSide ? (
           <motion.div
