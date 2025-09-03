@@ -1,7 +1,4 @@
 // File: /components/about.tsx
-import { FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
-import { SiTypescript, SiNextdotjs, SiTailwindcss, SiJavascript } from "react-icons/si";
-
 "use client";
 
 export default function About() {

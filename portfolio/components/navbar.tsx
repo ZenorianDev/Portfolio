@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Facebook, Linkedin, Youtube } from "lucide-react";
 
-const SECTION_ORDER = ["home", "about", "projects", "contact"] as const;
+const SECTION_ORDER = ["home", "about", "projects", "contact", "resume"] as const;
 type SectionId = (typeof SECTION_ORDER)[number];
 
 export default function Navbar({

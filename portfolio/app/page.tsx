@@ -8,7 +8,7 @@ import Projects from "@/components/projects";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 
-const SECTION_ORDER = ["home", "about", "projects", "contact", "resume"] as const;
+const SECTION_ORDER = ["home", "about", "projects", "contact"] as const;
 type SectionId = (typeof SECTION_ORDER)[number];
 
 const SECTION_BG: Record<SectionId, string> = {
@@ -16,7 +16,6 @@ const SECTION_BG: Record<SectionId, string> = {
   about: "linear-gradient(to bottom, #1a1a1a, #000)",
   projects: "linear-gradient(to bottom, #222, #000)",
   contact: "linear-gradient(to bottom, #2a2a2a, #000)",
-  resume: "linear-gradient(to bottom, #333, #000)",
 };
 
 export default function HomePage() {
