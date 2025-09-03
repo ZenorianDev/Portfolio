@@ -1,9 +1,14 @@
+// File: /components/contact.tsx
 export default function Contact() {
 return (
-<div className="mx-auto max-w-xl py-24 text-center">
-<h2 className="text-3xl font-bold">Contact</h2>
-<p className="mt-3 text-zinc-300">I’m open to work and collaborations — reach out!</p>
-<a className="mt-6 inline-block rounded-lg bg-white/10 px-4 py-2 font-medium ring-1 ring-white/20 hover:bg-white/20" href="mailto:you@email.com">Email me</a>
-</div>
+<section id="contact" className="scroll-mt-24 py-24">
+<h2 className="mb-4 text-2xl font-semibold text-white">Contact</h2>
+<form className="grid max-w-xl gap-3">
+<input className="rounded bg-transparent border border-white/10 px-3 py-2" placeholder="Name" />
+<input className="rounded bg-transparent border border-white/10 px-3 py-2" placeholder="Email" />
+<textarea className="rounded bg-transparent border border-white/10 px-3 py-2" placeholder="Message" />
+<button className="w-fit rounded-full bg-white px-5 py-2 text-black">Send</button>
+</form>
+</section>
 );
 }

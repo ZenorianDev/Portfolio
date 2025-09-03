@@ -1,106 +1,110 @@
 // app/page.tsx
 "use client";
 
-import { useState, useEffect, useMemo } from "react"; // ✅ added useMemo
-import { motion } from "framer-motion";
+import { useState, useEffect, useMemo } from "react"; 
+import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/navbar";
-import Homepage from "@/components/homepage";
 import About from "@/components/about";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 
-export default function Page() {
-  const [activeSection, setActiveSection] = useState<string>("homepage");
-  const [navMode, setNavMode] = useState<"top" | "side">("top");
+const SECTION_ORDER = ["home", "about", "projects", "contact"] as const;
+type SectionId = (typeof SECTION_ORDER)[number];
 
-  // Intersection Observer
+
+const SECTION_BG: Record<SectionId, string> = {
+home: "radial-gradient(1200px 800px at 50% -10%, #111 0%, #0a0a0a 40%, #000 100%)",
+about: "radial-gradient(1200px 800px at 50% -10%, #1a1a1a 0%, #0d0d0d 45%, #000 100%)",
+projects: "radial-gradient(1200px 800px at 50% -10%, #202020 0%, #0e0e0e 45%, #000 100%)",
+contact: "radial-gradient(1200px 800px at 50% -10%, #151515 0%, #0b0b0b 45%, #000 100%)",
+};
+
+export default function HomePage() {
+  const [active, setActive] = useState<SectionId>("home");
+  const [showSide, setShowSide] = useState(false);
+
+  // Track section visibility
   useEffect(() => {
-    const obs = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActiveSection(e.target.id);
-        });
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActive(visible.target.id as SectionId);
       },
-      { threshold: 0.56 }
+      { threshold: [0.25, 0.5, 0.75] }
     );
 
-    document.querySelectorAll("section[data-observe]").forEach((s) =>
-      obs.observe(s)
-    );
-    return () => obs.disconnect();
+    SECTION_ORDER.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
-  // Toggle navbar
+  // Toggle SideNav on scroll
   useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > window.innerHeight * 0.8) setNavMode("side");
-      else setNavMode("top");
-    };
+    const onScroll = () =>
+      setShowSide(window.scrollY > window.innerHeight * 0.6);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const bg = useMemo<Record<string, string>>(
-    () => ({
-      homepage: "from-gray-950 via-black to-zinc-900",
-      about: "from-indigo-950 via-indigo-900 to-purple-900",
-      projects: "from-emerald-950 via-emerald-900 to-green-900",
-      contact: "from-fuchsia-950 via-pink-900 to-rose-900",
-    }),
-    []
-  );
+  const bg = useMemo(() => SECTION_BG[active], [active]);
 
   return (
-    <div className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth text-zinc-100">
-      {/* animated background */}
-      <motion.div
-        key={activeSection}
-        aria-hidden
-        className={`pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br ${bg[activeSection]}`}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      />
+    <main className="relative min-h-screen overflow-x-hidden">
+      {/* Animated background */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={bg}
+          className="fixed inset-0 -z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          style={{ background: bg }}
+        />
+      </AnimatePresence>
 
-      <Navbar activeSection={activeSection} navMode={navMode} />
+      {/* Navbar */}
+      <Navbar active={active} showSide={showSide} />
 
-      <main className="mx-auto max-w-7xl">
+      {/* Content */}
+      <div className="mx-auto max-w-6xl px-4 md:pl-64">
         <section
-          id="homepage"
-          data-observe
-          className="min-h-screen snap-start flex items-center justify-center px-6"
+          id="home"
+          className="min-h-[90vh] grid place-items-center py-24 text-center"
         >
-          <Homepage />
+          <div>
+            <h1 className="mb-4 text-5xl font-bold text-white">Your Name</h1>
+            <p className="mb-6 text-neutral-300">
+              Brief professional intro goes here.
+            </p>
+            <div className="flex justify-center gap-3">
+              <a
+                href="#projects"
+                className="rounded-full bg-white px-5 py-2 text-black hover:bg-neutral-200"
+              >
+                View Projects
+              </a>
+              <a
+                href="#contact"
+                className="rounded-full border border-white/20 px-5 py-2 text-white hover:bg-white/5"
+              >
+                Contact Me
+              </a>
+            </div>
+          </div>
         </section>
-
-        <section
-          id="about"
-          data-observe
-          className="min-h-screen snap-start flex items-center justify-center px-6"
-        >
-          <About />
-        </section>
-
-        <section
-          id="projects"
-          data-observe
-          className="min-h-screen snap-start flex items-center justify-center px-6"
-        >
-          <Projects />
-        </section>
-
-        <section
-          id="contact"
-          data-observe
-          className="min-h-screen snap-start flex items-center justify-center px-6"
-        >
-          <Contact />
-        </section>
-      </main>
-
-      <Footer />
-    </div>
+        <About />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
+    </main>
   );
 }

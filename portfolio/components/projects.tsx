@@ -1,16 +1,24 @@
-// components/projects.tsx
+// File: /components/projects.tsx
+const projects = [
+{ title: "Monochrome UI", description: "Design system with motion.", year: "2025" },
+{ title: "Realtime Analytics", description: "Edge-first dashboards.", year: "2024" },
+];
+
 export default function Projects() {
 return (
-<div className="mx-auto max-w-5xl py-24">
-<h2 className="text-3xl font-bold text-center">Projects</h2>
-<div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-{[1, 2, 3].map((n) => (
-<div key={n} className="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
-<h3 className="font-semibold">Project {n}</h3>
-<p className="mt-1 text-sm text-zinc-300">Short description.</p>
+<section id="projects" className="scroll-mt-24 py-24">
+<h2 className="mb-8 text-2xl font-semibold text-white">Projects</h2>
+<ul className="grid gap-4 sm:grid-cols-2">
+{projects.map((p) => (
+<li key={p.title} className="rounded-2xl border border-white/10 bg-white/5 p-5 hover:bg-white/10">
+<div className="flex items-center justify-between">
+<h3 className="text-lg text-white">{p.title}</h3>
+<span className="text-xs text-neutral-400">{p.year}</span>
 </div>
+<p className="mt-2 text-sm text-neutral-300">{p.description}</p>
+</li>
 ))}
-</div>
-</div>
+</ul>
+</section>
 );
 }

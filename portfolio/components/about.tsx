@@ -1,11 +1,9 @@
+// File: /components/about.tsx
 export default function About() {
 return (
-<div className="mx-auto max-w-3xl py-24 text-center">
-<h2 className="text-3xl font-bold">About</h2>
-<p className="mt-4 text-zinc-300">Short intro about yourself goes here.</p>
-</div>
+<section id="about" className="scroll-mt-24 py-24">
+<h2 className="mb-4 text-2xl font-semibold text-white">About</h2>
+<p className="max-w-3xl text-neutral-300">Write a concise bio here.</p>
+</section>
 );
 }
-
-
-

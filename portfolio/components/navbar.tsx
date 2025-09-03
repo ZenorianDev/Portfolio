@@ -1,53 +1,86 @@
-// components/navbar.tsx
+// File: /components/navbar.tsx
 "use client";
 
-import { motion } from "framer-motion";
-import clsx from "clsx";
+import { motion, AnimatePresence } from "framer-motion";
 
-type Props = { activeSection: string; navMode: "top" | "side" };
+const SECTION_ORDER = ["home", "about", "projects", "contact"] as const;
+type SectionId = (typeof SECTION_ORDER)[number];
 
-const links = [
-  { id: "about", label: "About" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
-];
-
-export default function Navbar({ activeSection, navMode }: Props) {
-  // only show floating nav if in "side" mode
-  if (navMode === "top") return null;
-
+export default function Navbar({
+  active,
+  showSide,
+}: {
+  active: SectionId;
+  showSide: boolean;
+}) {
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      className="fixed right-8 top-6 z-40"
-    >
-      <div className="backdrop-blur-md bg-black/30 rounded-2xl shadow-lg px-4 py-2">
-        <ul className="flex gap-4 text-sm font-medium">
-          {links.map((l) => (
-            <li key={l.id}>
-              <a
-                href={`#${l.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document
-                    .getElementById(l.id)
-                    ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                }}
-                className={clsx(
-                  "px-3 py-2 rounded-lg transition-colors",
-                  activeSection === l.id
-                    ? "bg-white/20 text-white"
-                    : "text-zinc-300 hover:text-white"
-                )}
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </motion.nav>
+    <>
+      {/* Top navbar */}
+      <motion.div
+        initial={{ y: -40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -40, opacity: 0 }}
+        transition={{ duration: 0.25 }}
+        className="sticky top-0 z-40"
+      >
+        <nav className="mx-auto flex max-w-6xl items-center justify-between bg-neutral-950/70 px-4 py-3 backdrop-blur-md">
+          <div className="font-semibold">YourLogo</div>
+          <ul className="flex gap-6">
+            {SECTION_ORDER.map((id) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
+                  className={`capitalize ${
+                    active === id
+                      ? "text-white underline"
+                      : "text-neutral-300 hover:text-white"
+                  }`}
+                >
+                  {id}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </motion.div>
+
+      {/* Side navbar (on scroll) */}
+      <AnimatePresence>
+        {showSide && (
+          <motion.aside
+            key="side"
+            initial={{ x: -120, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -120, opacity: 0 }}
+            className="fixed left-0 top-0 hidden h-screen w-56 border-r border-white/10 bg-black/40 backdrop-blur md:block"
+          >
+            <div className="flex h-full flex-col">
+              <div className="border-b border-white/10 px-5 py-4 font-semibold">
+                YourLogo
+              </div>
+              <ul className="flex-1 space-y-1 px-3 py-4">
+                {SECTION_ORDER.map((id) => (
+                  <li key={id}>
+                    <a
+                      href={`#${id}`}
+                      className={`block rounded-lg px-3 py-2 text-sm ${
+                        active === id
+                          ? "bg-white text-black"
+                          : "text-neutral-300 hover:bg-white/10"
+                      }`}
+                    >
+                      {id}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="px-3 py-4 text-xs text-neutral-400">
+                Socials here
+              </div>
+            </div>
+          </motion.aside>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
