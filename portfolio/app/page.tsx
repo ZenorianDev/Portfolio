@@ -1,39 +1,39 @@
-// app/page.tsx
+// File: /app/page.tsx
 "use client";
 
-import { useState, useEffect, useMemo } from "react"; 
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/navbar";
 import About from "@/components/about";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
-
-const SECTION_ORDER = ["home", "about", "projects", "contact"] as const;
-type SectionId = (typeof SECTION_ORDER)[number];
-
-
-const SECTION_BG: Record<SectionId, string> = {
-home: "radial-gradient(1200px 800px at 50% -10%, #111 0%, #0a0a0a 40%, #000 100%)",
-about: "radial-gradient(1200px 800px at 50% -10%, #1a1a1a 0%, #0d0d0d 45%, #000 100%)",
-projects: "radial-gradient(1200px 800px at 50% -10%, #202020 0%, #0e0e0e 45%, #000 100%)",
-contact: "radial-gradient(1200px 800px at 50% -10%, #151515 0%, #0b0b0b 45%, #000 100%)",
-};
+import { SECTION_ORDER, SectionId, SECTION_BG } from "@/lib/sections";
 
 export default function HomePage() {
   const [active, setActive] = useState<SectionId>("home");
   const [showSide, setShowSide] = useState(false);
 
-  // Track section visibility
+  // detect scroll → toggle side layout
+  useEffect(() => {
+    const onScroll = () => {
+      setShowSide(window.scrollY > window.innerHeight * 0.6);
+    };
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // detect which section is active
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(visible.target.id as SectionId);
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id as SectionId);
+          }
+        });
       },
-      { threshold: [0.25, 0.5, 0.75] }
+      { threshold: 0.6 }
     );
 
     SECTION_ORDER.forEach((id) => {
@@ -44,20 +44,11 @@ export default function HomePage() {
     return () => observer.disconnect();
   }, []);
 
-  // Toggle SideNav on scroll
-  useEffect(() => {
-    const onScroll = () =>
-      setShowSide(window.scrollY > window.innerHeight * 0.6);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const bg = useMemo(() => SECTION_BG[active], [active]);
 
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      {/* Animated background */}
+      {/* background */}
       <AnimatePresence mode="wait">
         <motion.div
           key={bg}
@@ -70,14 +61,19 @@ export default function HomePage() {
         />
       </AnimatePresence>
 
-      {/* Content */}
+      {/* navbar */}
+      <Navbar active={active} showSide={showSide} />
+
+      {/* sections */}
       <div className="mx-auto max-w-6xl px-4 md:pl-64">
         <section
           id="home"
           className="min-h-[90vh] grid place-items-center py-24 text-center"
         >
           <div>
-            <h1 className="mb-4 text-5xl font-bold text-white">Your Name</h1>
+            <h1 className="mb-4 text-5xl font-bold text-white">
+              Your Name
+            </h1>
             <p className="mb-6 text-neutral-300">
               Brief professional intro goes here.
             </p>
@@ -97,9 +93,23 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-        <About />
-        <Projects />
-        <Contact />
+
+        <section id="about">
+          <About />
+        </section>
+
+        <section id="projects">
+          <Projects />
+        </section>
+
+        <section id="contact">
+          <Contact />
+        </section>
+
+        <section id="resume" className="min-h-[50vh] grid place-items-center">
+          <p className="text-neutral-300">Resume section placeholder</p>
+        </section>
+
         <Footer />
       </div>
     </main>
