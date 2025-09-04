@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Facebook, Linkedin, Youtube } from "lucide-react";
 
-const SECTION_ORDER = ["home", "about", "projects", "contact", "resume"] as const;
+const SECTION_ORDER = ["home", "about", "projects", "contact"] as const;
 type SectionId = (typeof SECTION_ORDER)[number];
 
 export default function Navbar({
@@ -38,8 +38,8 @@ export default function Navbar({
             key="center"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 flex items-center justify-center gap-8 text-lg font-medium"
           >
             {SECTION_ORDER.map((id) => (
