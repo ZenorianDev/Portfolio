@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Facebook, Linkedin, Youtube } from "lucide-react";
+import { Github, Facebook, Linkedin } from "lucide-react";
 
 const SECTION_ORDER = ["home", "about", "projects", "contact"] as const;
 type SectionId = (typeof SECTION_ORDER)[number];

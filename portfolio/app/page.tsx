@@ -71,12 +71,12 @@ export default function HomePage() {
       <div className="mx-auto max-w-6xl px-4 md:pl-64">
         <section
           id="home"
-          className="min-h-[90vh] grid place-items-center py-24 text-center"
+          className="min-h-[90vh] grid place-items-left py-36 text-left"
         >
           <div>
-            <h1 className="mb-4 text-5xl font-bold text-white">Your Name</h1>
+            <h1 className="mb-4 text-8xl font-bold text-white">Reanne Lorraine Martinez</h1>
             <p className="mb-6 text-neutral-300">
-              Brief professional intro goes here.
+              Aspiring Full Stack Developer | Game Developer
             </p>
             <div className="flex justify-center gap-3">
               <a
@@ -105,10 +105,6 @@ export default function HomePage() {
 
         <section id="contact">
           <Contact />
-        </section>
-
-        <section id="resume" className="min-h-[50vh] grid place-items-center">
-          <p className="text-neutral-300">Resume section placeholder</p>
         </section>
 
         <Footer />
