@@ -71,23 +71,30 @@ export default function HomePage() {
       <div className="mx-auto max-w-6xl px-4">
         <section
           id="home"
-          className="min-h-[90vh] grid place-items-left py-36 text-left"
+          className="min-h-[90vh] grid place-items-left py-28 text-left"
         >
           <div>
-            <h1 className="mb-4 text-8xl font-bold text-white">Reanne Lorraine Martinez</h1>
+            <h1 className="mb-4 text-[8rem] font-extrabold leading-none text-white">
+              REANNE <br />
+              <span className="block ml-40">LORRAINE</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
+                MARTINEZ
+              </span>
+            </h1>
+
             <p className="mb-6 text-neutral-300">
               Aspiring Full Stack Developer | Game Developer
             </p>
             <div className="flex justify-left gap-3">
               <a
                 href="#projects"
-                className="rounded-full bg-white/10 px-5 py-2 text-white hover:bg-white/20"
+                className="rounded-full bg-white/10 px-5 py-2 text-white cursor-pointer hover:bg-white/20 active:scale-95 transition-transform duration-150"
               >
                 View Projects
               </a>
               <a
                 href="#contact"
-                className="rounded-full border border-white/20 px-5 py-2 text-white hover:bg-white/5"
+                className="rounded-full border border-white/20 px-5 py-2 text-white cursor-pointer hover:bg-white/5 active:scale-95 transition-transform duration-150"
               >
                 Contact Me
               </a>
