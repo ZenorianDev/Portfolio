@@ -68,7 +68,7 @@ export default function HomePage() {
 
       <Navbar active={active} showSide={showSide} />
 
-      <div className="mx-auto max-w-6xl px-4 md:pl-64">
+      <div className="mx-auto max-w-6xl px-4">
         <section
           id="home"
           className="min-h-[90vh] grid place-items-left py-36 text-left"

@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section className="py-20 text-white">
       <div className="mx-auto max-w-6xl px-4">
-{/* Header */}
+      {/* Header */}
         <h2 className="mb-12 text-3xl font-bold tracking-wide uppercase">
           Learn More About Me
         </h2>
@@ -16,10 +16,10 @@ export default function About() {
           {/* Profile photo */}
           <div className="flex justify-center">
             <Image
-              src="/zenorian.png"
+              src="/me.jpg"
               alt="Profile photo"
-              width={300}
-              height={300}
+              width={400}
+              height={500}
               className="rounded-xl shadow-lg object-cover"
             />
           </div>
@@ -66,7 +66,7 @@ export default function About() {
                 <span className="font-bold text-white flex items-center gap-2">
                   <FaMapMarkerAlt className="text-green-400" /> City:
                 </span>{" "}
-                Bulacan, PHILIPPINES
+                Bulacan, Philippines
               </p>
             </div>
 
