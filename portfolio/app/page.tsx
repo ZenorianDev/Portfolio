@@ -71,9 +71,10 @@ export default function HomePage() {
       <div className="mx-auto max-w-6xl px-4">
         <section
           id="home"
-          className="min-h-[90vh] grid place-items-left py-28 text-left"
+          className="min-h-[90vh] py-28 text-left flex flex-col lg:flex-row items-center justify-between gap-8"
         >
-          <div>
+          {/* Left: Heading & Buttons */}
+          <div className="flex-1">
             <h1 className="mb-4 text-[7rem] font-extrabold leading-none text-white">
               REANNE <br />
               <span className="block ml-40">LORRAINE</span>
@@ -101,8 +102,22 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-        </section>
 
+          {/* Right: Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            className="flex-1 flex justify-center lg:justify-end"
+          >
+            <img
+              src="/your-image.png" // replace with your actual image path
+              alt="Reanne Lorraine Martinez"
+              className="w-[300px] h-[300px] object-cover rounded-xl shadow-lg"
+            />
+          </motion.div>
+        </section>
+        
         <section id="about">
           <About />
         </section>
