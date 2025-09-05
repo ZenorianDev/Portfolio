@@ -81,7 +81,7 @@ export default function HomePage() {
             <div className="flex justify-center gap-3">
               <a
                 href="#projects"
-                className="rounded-full bg-white px-5 py-2 text-black hover:bg-neutral-200"
+                className="rounded-full bg-white/10 px-5 py-2 text-white hover:bg-white/20"
               >
                 View Projects
               </a>

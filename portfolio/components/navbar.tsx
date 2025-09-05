@@ -1,4 +1,4 @@
-"use client";
+import Image from "next/image";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Facebook, Linkedin } from "lucide-react";
@@ -27,9 +27,15 @@ export default function Navbar({
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4 }}
-        className="fixed center-6 left-6 z-10 font-bold text-xl"
+        className="fixed top-5 center-6 left-6 z-40 font-bold text-xl"
       >
-        R
+        <Image
+          src="/R.png"
+          alt="Profile photo"
+          width={35}
+          height={35}
+          className="rounded-xl shadow-lg object-cover"
+        />
       </motion.div>
 
       <AnimatePresence mode="wait">
@@ -65,7 +71,7 @@ export default function Navbar({
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -100, opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed left-6 top-1/2 z-40 flex -translate-y-1/2 flex-col gap-6 text-lg font-medium"
+            className="fixed left-6 top-1/4 z-40 flex -translate-y-1/2 flex-col gap-6 text-lg font-medium"
           >
             {SECTION_ORDER.map((id) => (
               <li key={id}>

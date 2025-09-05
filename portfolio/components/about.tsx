@@ -1,7 +1,6 @@
 // File: /components/about.tsx
 import Image from "next/image";
 import { FaBirthdayCake, FaUser, FaLanguage, FaGraduationCap, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-"use client";
 
 export default function About() {
   return (
@@ -17,7 +16,7 @@ export default function About() {
           {/* Profile photo */}
           <div className="flex justify-center">
             <Image
-              src="/profile.jpg" // replace with your image inside public/
+              src="/zenorian.png"
               alt="Profile photo"
               width={300}
               height={300}
@@ -36,7 +35,7 @@ export default function About() {
                 <span className="font-bold text-white flex items-center gap-2">
                   <FaBirthdayCake className="text-green-400" /> Birthday:
                 </span>{" "}
-                December 5, 2003
+                August 2005
               </p>
               <p>
                 <span className="font-bold text-white flex items-center gap-2">
@@ -48,7 +47,7 @@ export default function About() {
                 <span className="font-bold text-white flex items-center gap-2">
                   <FaLanguage className="text-green-400" /> Languages:
                 </span>{" "}
-                English / Tagalog / Cebuano
+                English / Tagalog / French
               </p>
               <p>
                 <span className="font-bold text-white flex items-center gap-2">
@@ -60,13 +59,14 @@ export default function About() {
                 <span className="font-bold text-white flex items-center gap-2">
                   <FaEnvelope className="text-green-400" /> Email:
                 </span>{" "}
-                curtdelosreyes8@gmail.com
+                zenorian.dev@gmail.com
+                reannemartinez18@gmail.com
               </p>
               <p>
                 <span className="font-bold text-white flex items-center gap-2">
                   <FaMapMarkerAlt className="text-green-400" /> City:
                 </span>{" "}
-                Cebu City, PHILIPPINES
+                Bulacan, PHILIPPINES
               </p>
             </div>
 
