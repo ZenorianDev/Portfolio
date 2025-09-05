@@ -53,7 +53,7 @@ export default function Navbar({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-10 z-40 flex items-top justify-center gap-8 text-lm font-medium"
+            className="fixed top-10 right-10 z-40 flex gap-8 text-lm font-medium"
           >
             {SECTION_ORDER.map((id) => (
               <li key={id}>
@@ -102,14 +102,14 @@ export default function Navbar({
       <AnimatePresence mode="wait">
         {!showSide ? (
           <motion.div
-            key="socials-center"
+            key="socials-left"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.4 }}
-            className="fixed bottom-50 left-1/2 z-40 flex -translate-x-1/2 gap-6"
+            className="fixed bottom-20 left-50 z-40 flex"
           >
-            <SocialLinks />
+            <SocialLinks direction="row" />
           </motion.div>
         ) : (
           <motion.div
@@ -118,9 +118,9 @@ export default function Navbar({
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 100, opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed bottom-6 right-6 z-40 flex flex-col gap-6"
+            className="fixed bottom-6 right-6 z-40 flex"
           >
-            <SocialLinks />
+            <SocialLinks direction="col" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -128,18 +128,39 @@ export default function Navbar({
   );
 }
 
-function SocialLinks() {
+function SocialLinks({ direction = "row" }: { direction?: "row" | "col" }) {
+  const iconClasses =
+    "h-5 w-5 text-neutral-300 group-hover:text-white transition-colors duration-200";
+
+  const bubbleClasses =
+    "group flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition duration-200";
+
   return (
-    <>
-      <a href="https://github.com/ZenorianDev" target="ZenorianDev.github.com">
-        <Github className="h-5 w-5 text-neutral-300 hover:text-white" />
+    <div className={`flex ${direction === "col" ? "flex-col gap-6" : "flex-row gap-3"}`}>
+      <a
+        href="https://github.com/ZenorianDev"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={bubbleClasses}
+      >
+        <Github className={iconClasses} />
       </a>
-      <a href="https://facebook.com/zenorian.dev" target="ZenorianDev.facebook.com">
-        <Facebook className="h-5 w-5 text-neutral-300 hover:text-white" />
+      <a
+        href="https://facebook.com/zenorian.dev"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={bubbleClasses}
+      >
+        <Facebook className={iconClasses} />
       </a>
-      <a href="https://linkedin.com/in/zenoriandev" target="ZenorianDev.linkedin.com">
-        <Linkedin className="h-5 w-5 text-neutral-300 hover:text-white" />
+      <a
+        href="https://linkedin.com/in/zenoriandev"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={bubbleClasses}
+      >
+        <Linkedin className={iconClasses} />
       </a>
-    </>
+    </div>
   );
 }
