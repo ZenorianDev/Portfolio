@@ -78,7 +78,7 @@ export default function HomePage() {
             <p className="mb-6 text-neutral-300">
               Aspiring Full Stack Developer | Game Developer
             </p>
-            <div className="flex justify-center gap-3">
+            <div className="flex justify-left gap-3">
               <a
                 href="#projects"
                 className="rounded-full bg-white/10 px-5 py-2 text-white hover:bg-white/20"

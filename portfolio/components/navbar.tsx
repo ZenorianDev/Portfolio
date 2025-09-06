@@ -34,7 +34,13 @@ export default function Navbar({
           alt="Profile photo"
           width={35}
           height={35}
-          className="rounded-xl shadow-lg object-cover"
+          className="rounded-xl shadow-lg object-cover cursor-pointer"
+          onClick={() => {
+            const el = document.getElementById("home");
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }}
         />
       </motion.div>
 
