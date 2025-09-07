@@ -90,7 +90,7 @@ export default function About() {
               </p>
               <p>
                 <span className="font-bold text-white flex items-center gap-2">
-                  <FaGraduationCap className="text-green-400" /> Degree:
+                  <FaGraduationCap className="text-teal-400" /> Degree:
                 </span>{" "}
                 BSIT – Software Engineering
               </p>
