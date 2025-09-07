@@ -94,11 +94,10 @@ export default function About() {
                 </span>{" "}
                 BSIT – Software Engineering
               </p>
-              <p className="col-span-2">
+              <p>
                 <span className="font-bold text-white flex items-center gap-2">
                   <FaEnvelope className="text-green-400" /> Email:
                 </span>{" "}
-                zenorian.dev@gmail.com <br />
                 reannemartinez18@gmail.com
               </p>
               <p>
@@ -109,6 +108,7 @@ export default function About() {
               </p>
             </div>
 
+            {/* Bio */}
             <div className="space-y-4 text-neutral-300 leading-relaxed">
               <p>
                 As a passionate and goal-driven lifelong learner, I thrive on
