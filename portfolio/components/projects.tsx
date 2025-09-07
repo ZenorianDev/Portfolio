@@ -29,7 +29,7 @@ const PROJECTS = [
     title: "2048 Game",
     description:
       "A 2D game developed using Python and Pygame with fun mechanics and retro visuals.",
-    image: "/projects/game.png",
+    image: "/2048.png",
     tech: ["HTML", "CSS", "JavaScript"],
     link: "https://github.com/yourusername/game-project",
   },
