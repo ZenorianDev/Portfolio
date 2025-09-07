@@ -154,7 +154,7 @@ export default function Projects() {
               <div className="flex flex-col justify-center text-white">
                 <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
                 <p className="mb-4 text-neutral-300">{project.description}</p>
-                <h4 className="font-semibold mb-2 text-pink-400">Tech Stack</h4>
+                <h4 className="font-semibold mb-2 text-green-400">Tech Stack</h4>
                 <ul className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((t) => (
                     <li
@@ -169,7 +169,7 @@ export default function Projects() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-purple-600 hover:bg-purple-700 px-5 py-2 text-white font-medium transition"
+                  className="inline-flex items-center gap-2 rounded-full bg-neutral-800 hover:bg-neutral-700 px-5 py-2 text-white font-medium transition"
                 >
                   <ExternalLink size={18} />
                   View Source

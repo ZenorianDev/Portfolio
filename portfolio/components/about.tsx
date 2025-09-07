@@ -90,7 +90,7 @@ export default function About() {
               </p>
               <p>
                 <span className="font-bold text-white flex items-center gap-2">
-                  <FaGraduationCap className="text-teal-400" /> Degree:
+                  <FaGraduationCap className="text-green-400" /> Degree:
                 </span>{" "}
                 BSIT – Software Engineering
               </p>
@@ -197,7 +197,7 @@ export default function About() {
           {/* Left: Education */}
           <div className="relative border-l border-neutral-700 pl-6">
             <div className="mb-8 ml-4 relative">
-              <div className="absolute -left-12 top-1 h-5 w-5 rounded-full border-2 border-green-400 bg-neutral-900"></div>
+              <div className="absolute -left-12 top-1 h-5 w-5 rounded-full border-2 border-sky-400 bg-neutral-900"></div>
               <h4 className="text-lg font-medium">
                 Bachelor of Science in Information Technology
               </h4>
@@ -207,7 +207,7 @@ export default function About() {
             </div>
 
             <div className="mb-8 ml-4 relative">
-              <div className="absolute -left-12 top-1 h-5 w-5 rounded-full border-2 border-green-400 bg-neutral-900"></div>
+              <div className="absolute -left-12 top-1 h-5 w-5 rounded-full border-2 border-sky-400 bg-neutral-900"></div>
               <h4 className="text-lg font-medium">
                 Applied Degree in Software Engineering
               </h4>
@@ -217,7 +217,7 @@ export default function About() {
             </div>
 
             <div className="ml-4 relative">
-              <div className="absolute -left-12 top-1 h-5 w-5 rounded-full border-2 border-green-400 bg-neutral-900"></div>
+              <div className="absolute -left-12 top-1 h-5 w-5 rounded-full border-2 border-sky-400 bg-neutral-900"></div>
               <h4 className="text-lg font-medium">General Academic Strand</h4>
               <p className="text-sm text-neutral-400">
                 Jarmmeth College, Inc. <br /> 2022 – 2024
@@ -227,7 +227,7 @@ export default function About() {
 
           {/* Right: Soft Skills */}
           <div>
-            <h4 className="text-xl font-semibold text-green-400 mb-4">
+            <h4 className="text-xl font-semibold text-white mb-4">
               Soft Skills
             </h4>
             <ul className="grid grid-cols-2 gap-3 text-sm text-neutral-300">

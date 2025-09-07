@@ -20,7 +20,7 @@ export default function Contact() {
         <div className="grid gap-6 sm:grid-cols-2">
           {/* Full Name */}
           <div className="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-600 text-white font-bold">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-sky-600 text-white font-bold">
               R
             </div>
             <div>
@@ -31,7 +31,7 @@ export default function Contact() {
 
           {/* Email */}
           <div className="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition">
-            <Mail className="h-6 w-6 text-purple-400 mt-1" />
+            <Mail className="h-6 w-6 text-sky-400 mt-1" />
             <div>
               <p className="text-sm text-neutral-400">Email Address</p>
               <a
@@ -45,7 +45,7 @@ export default function Contact() {
 
           {/* Phone */}
           <div className="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition">
-            <Phone className="h-6 w-6 text-purple-400 mt-1" />
+            <Phone className="h-6 w-6 text-sky-400 mt-1" />
             <div>
               <p className="text-sm text-neutral-400">Phone Number</p>
               <a href="tel:+6399668645784" className="font-medium hover:underline">
@@ -56,7 +56,7 @@ export default function Contact() {
 
           {/* LinkedIn */}
           <div className="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition">
-            <Linkedin className="h-6 w-6 text-purple-400 mt-1" />
+            <Linkedin className="h-6 w-6 text-sky-400 mt-1" />
             <div>
               <p className="text-sm text-neutral-400">LinkedIn Profile</p>
               <a
@@ -72,7 +72,7 @@ export default function Contact() {
 
           {/* Location */}
           <div className="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition sm:col-span-2">
-            <MapPin className="h-6 w-6 text-purple-400 mt-1" />
+            <MapPin className="h-6 w-6 text-sky-400 mt-1" />
             <div>
               <p className="text-sm text-neutral-400">Location</p>
               <p className="font-medium">City of San Jose del Monte, Bulacan, North Luzon, Philippines</p>
