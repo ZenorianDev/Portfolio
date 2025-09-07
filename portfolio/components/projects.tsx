@@ -8,11 +8,11 @@ import { ExternalLink, X } from "lucide-react";
 const PROJECTS = [
   {
     id: 1,
-    title: "Portfolio Website",
+    title: "DoBu Martial Arts",
     description:
       "A modern personal portfolio showcasing my skills, projects, and contact details with a sleek design.",
-    image: "/portfolio.png",
-    tech: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+    image: "/dobu.png",
+    tech: ["HTML", "CSS", "JavaScript", "Bootstrap"],
     link: "https://github.com/yourusername/portfolio",
   },
   {
@@ -21,42 +21,42 @@ const PROJECTS = [
     description:
       "A full-featured e-commerce platform with product browsing, cart, and secure checkout.",
     image: "/virdesk.png",
-    tech: ["React", "Redux", "Node.js", "MongoDB"],
+    tech: ["HTML", "CSS", "JavaScript"],
     link: "https://github.com/yourusername/ecommerce-store",
   },
   {
     id: 3,
-    title: "Game Project",
+    title: "2048 Game",
     description:
       "A 2D game developed using Python and Pygame with fun mechanics and retro visuals.",
     image: "/projects/game.png",
-    tech: ["Python", "Pygame"],
+    tech: ["HTML", "CSS", "JavaScript"],
     link: "https://github.com/yourusername/game-project",
   },
 {
     id: 4,
-    title: "Game Project",
+    title: "Enomy Finance",
     description:
-      "A 2D game developed using Python and Pygame with fun mechanics and retro visuals.",
-    image: "/projects/game.png",
-    tech: ["Python", "Pygame"],
-    link: "https://github.com/yourusername/game-project",
+      "A finance management tool built with Python and Flask.",
+    image: "/enomy.png",
+    tech: ["Python", "Flask", "SQLAlchemy"],
+    link: "https://github.com/yourusername/enomy-finance",
   },
 {
     id: 5,
-    title: "Game Project",
+    title: "North Sussex Judo",
     description:
       "A 2D game developed using Python and Pygame with fun mechanics and retro visuals.",
-    image: "/projects/game.png",
+    image: "/nsj.png",
     tech: ["Python", "Pygame"],
     link: "https://github.com/yourusername/game-project",
   },
   {
     id: 6,
-    title: "Game Project",
+    title: "Meals On Wheels",
     description:
       "A 2D game developed using Python and Pygame with fun mechanics and retro visuals.",
-    image: "/projects/game.png",
+    image: "/mow.png",
     tech: ["Python", "Pygame"],
     link: "https://github.com/yourusername/game-project",
   },
