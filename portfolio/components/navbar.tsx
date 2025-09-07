@@ -1,5 +1,6 @@
-import Image from "next/image";
+// File: /components/navbar.tsx
 
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Facebook, Linkedin } from "lucide-react";
 

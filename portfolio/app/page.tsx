@@ -74,9 +74,11 @@ export default function HomePage() {
           className="min-h-[90vh] grid place-items-left py-28 text-left"
         >
           <div>
-            <h1 className="mb-4 text-[7rem] font-extrabold leading-none text-white">
+            <h1
+              className="mb-4 text-[clamp(3rem,10vw,7rem)] font-extrabold leading-none text-white [text-rendering:optimizeLegibility]"
+            >
               REANNE <br />
-              <span className="block ml-40">LORRAINE</span>
+              <span className="block ml-20 md:ml-40">LORRAINE</span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
                 MARTINEZ
               </span>

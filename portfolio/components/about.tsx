@@ -1,3 +1,4 @@
+// File: /components/about.tsx
 "use client";
 
 import Image from "next/image";
