@@ -111,20 +111,16 @@ export default function About() {
             {/* Bio */}
             <div className="space-y-4 text-neutral-300 leading-relaxed">
               <p>
-                As a passionate and goal-driven lifelong learner, I thrive on
-                challenging tasks that require critical thinking and
-                problem-solving abilities.
+                I’m an aspiring Full Stack Developer and Game Developer 
+                with a passion for turning ideas into reality. 
               </p>
               <p>
-                Growing up, my fascination with the capabilities of computers
-                sparked my ambition to become a Software Engineer. I find
-                immense interest in building and designing websites, as well as
-                delving into various aspects of software development.
+                Driven by a love for learning and problem-solving, I thrive on tackling complex challenges that require critical thinking. From a young age, 
+                I’ve been fascinated by technology, which led me to pursue a career in software development.
               </p>
               <p>
-                With a deep-rooted enthusiasm for this field, I am dedicated to
-                honing my skills and leveraging my expertise to create
-                innovative and impactful software solutions.
+                I’m deeply committed to honing my skills in both web development and game design, 
+                with the goal of creating innovative, impactful solutions that bring concepts to life.
               </p>
             </div>
           </div>
