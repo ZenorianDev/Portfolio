@@ -98,7 +98,7 @@ export default function About() {
                 <span className="font-bold text-white flex items-center gap-2">
                   <FaEnvelope className="text-green-400" /> Email:
                 </span>{" "}
-                reannemartinez18@gmail.com
+                zenorian.dev@gmail.com
               </p>
               <p>
                 <span className="font-bold text-white flex items-center gap-2">
