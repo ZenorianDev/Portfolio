@@ -57,7 +57,7 @@ export default function About() {
             <Image
               src="/profile.jpg"
               alt="Profile photo"
-              width={350}
+              width={400}
               height={500}
               className="rounded-xl shadow-lg object-cover"
             />
