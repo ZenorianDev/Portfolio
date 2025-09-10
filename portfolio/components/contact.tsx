@@ -75,7 +75,7 @@ export default function Contact() {
             <MapPin className="h-6 w-6 text-sky-400 mt-1" />
             <div>
               <p className="text-sm text-neutral-400">Location</p>
-              <p className="font-medium">City of San Jose del Monte, Bulacan, North Luzon, Philippines</p>
+              <p className="font-medium">City of San Jose del Monte, Bulacan, Central Luzon, Philippines</p>
             </div>
           </div>
         </div>
