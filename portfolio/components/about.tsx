@@ -55,7 +55,7 @@ export default function About() {
           {/* Profile photo */}
           <div className="flex justify-center">
             <Image
-              src="/profile.jpg"
+              src="/me.jpg"
               alt="Profile photo"
               width={400}
               height={500}
