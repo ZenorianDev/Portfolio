@@ -16,17 +16,18 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Portfolio",
   description: "Personal portfolio built with Next.js",
-    icons: {
-    icon: "/icon.png", 
+  icons: {
+    icon: "/icon.png",
   },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        <link rel="icon" type="image/png" href="/icon.png" />
+      </head>
       <body
-        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} bg-neutral-950 text-neutral-200 antialiased selection:bg-neutral-700 selection:text-white`}
       >
         {children}
