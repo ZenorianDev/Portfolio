@@ -79,7 +79,7 @@ export default function HomePage() {
             >
               REANNE <br />
               <span className="block ml-20 md:ml-40">LORRAINE</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 via-green-600 to-sky-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-br from-lime-400 via-green-700 to-lime-400">
                 MARTINEZ
               </span>
             </h1>
