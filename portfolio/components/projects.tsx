@@ -10,7 +10,7 @@ const PROJECTS = [
     id: 1,
     title: "DoBu Martial Arts",
     description:
-      "A modern personal portfolio showcasing my skills, projects, and contact details with a sleek design.",
+      "DoBu Martial Arts is a modern and user-friendly website designed to provide an engaging experience for visitors interested in martial arts training.",
     image: "/dobu.png",
     tech: ["HTML", "CSS", "JavaScript", "Bootstrap"],
     link: "https://github.com/yourusername/portfolio",
