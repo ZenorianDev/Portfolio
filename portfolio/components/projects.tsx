@@ -22,7 +22,7 @@ const PROJECTS = [
       "Virdesk is a simple browser-based workspace that helps you stay productive and focused. Fuel your productivity and watch your virtual desk grow with you.",
     image: "/virdesk.png",
     tech: ["HTML", "CSS", "JavaScript"],
-    link: "https://github.com/ZenorianDev/virdesk",
+    link: "https://github.com/ZenorianDev/Virdesk",
   },
   {
     id: 3,
