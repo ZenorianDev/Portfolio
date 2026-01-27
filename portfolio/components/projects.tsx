@@ -40,7 +40,7 @@ const PROJECTS = [
       "Enomy-Finances is a web-based system developed by using Thymeleaf for frontend and Spring for backend.",
     image: "/enomy.png",
     tech: ["Thymeleaf", "Spring", "MySQL"],
-    link: "https://github.com/ZenorianDev/Enomy-Finance",
+    link: "https://github.com/ZenorianDev/Enomy-Finances",
   },
 {
     id: 5,
