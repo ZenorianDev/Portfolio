@@ -28,37 +28,37 @@ const PROJECTS = [
     id: 3,
     title: "2048 Game",
     description:
-      "A 2D game developed using Python and Pygame with fun mechanics and retro visuals.",
+      "2048 is a single-player puzzle game on a 4×4 grid where players slide numbered tiles to combine matching values.",
     image: "/2048.png",
     tech: ["HTML", "CSS", "JavaScript"],
-    link: "https://github.com/yourusername/game-project",
+    link: "https://github.com/ZenorianDev/2048",
   },
 {
     id: 4,
-    title: "Enomy Finance",
+    title: "Enomy-Finances",
     description:
-      "A finance management tool built with Python and Flask.",
+      "Enomy-Finances is a web-based system developed by using Thymeleaf for frontend and Spring for backend.",
     image: "/enomy.png",
-    tech: ["Python", "Flask", "SQLAlchemy"],
-    link: "https://github.com/yourusername/enomy-finance",
+    tech: ["Thymeleaf", "Spring", "MySQL"],
+    link: "https://github.com/ZenorianDev/Enomy-Finance",
   },
 {
     id: 5,
     title: "North Sussex Judo",
     description:
-      "A 2D game developed using Python and Pygame with fun mechanics and retro visuals.",
+      "North Sussex Judo is a Java-based program that allows users to enter and manage athlete information for a judo training club.",
     image: "/nsj.png",
-    tech: ["Python", "Pygame"],
-    link: "https://github.com/yourusername/game-project",
+    tech: ["Java"],
+    link: "https://github.com/ZenorianDev/North-Sussex-Judo",
   },
   {
     id: 6,
     title: "Meals On Wheels",
     description:
-      "A 2D game developed using Python and Pygame with fun mechanics and retro visuals.",
+      "MerryMeal's Meals on Wheels Project — A full-stack application with a Spring Boot backend and React frontend to manage meal deliveries efficiently.",
     image: "/mow.png",
-    tech: ["Python", "Pygame"],
-    link: "https://github.com/yourusername/game-project",
+    tech: ["React", "Spring Boot", "MySQL"],
+    link: "https://github.com/DevRyujin/mealsonwheels-project",
   },
 ];
 
