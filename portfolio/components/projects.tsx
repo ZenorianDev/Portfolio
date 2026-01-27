@@ -13,16 +13,16 @@ const PROJECTS = [
       "DoBu Martial Arts is a modern and user-friendly website designed to provide an engaging experience for visitors interested in martial arts training.",
     image: "/dobu.png",
     tech: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    link: "https://github.com/yourusername/portfolio",
+    link: "https://github.com/ZenorianDev/DoBuMartialArts",
   },
   {
     id: 2,
     title: "Virdesk",
     description:
-      "A full-featured e-commerce platform with product browsing, cart, and secure checkout.",
+      "Virdesk is a simple browser-based workspace that helps you stay productive and focused. Fuel your productivity and watch your virtual desk grow with you.",
     image: "/virdesk.png",
     tech: ["HTML", "CSS", "JavaScript"],
-    link: "https://github.com/yourusername/ecommerce-store",
+    link: "https://github.com/ZenorianDev/virdesk",
   },
   {
     id: 3,
