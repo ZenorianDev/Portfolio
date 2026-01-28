@@ -18,7 +18,7 @@ const reveal = {
 export default function HomePage() {
   return (
     <main className="relative min-h-screen bg-black text-white overflow-x-hidden">
-      <Navbar active={"about"} showSide={false} />
+      <Navbar />
 
       {/* ================= HERO ================= */}
       <section

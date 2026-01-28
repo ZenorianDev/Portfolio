@@ -1,167 +1,83 @@
-// File: /components/navbar.tsx
+"use client";
 
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { Github, Facebook, Linkedin } from "lucide-react";
+import { useEffect, useState } from "react";
+import clsx from "clsx";
 
-const SECTION_ORDER = ["home", "about", "projects", "contact"] as const;
-type SectionId = (typeof SECTION_ORDER)[number];
+const SECTIONS = ["home", "about", "projects", "contact"] as const;
+type SectionId = (typeof SECTIONS)[number];
 
-export default function Navbar({
-  active,
-  showSide,
-}: {
-  active: SectionId;
-  showSide: boolean;
-}) {
-  const handleClick = (id: SectionId) => (e: React.MouseEvent) => {
-    e.preventDefault();
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+export default function Navbar() {
+  const [active, setActive] = useState<SectionId>("home");
+  const [scrolled, setScrolled] = useState(false);
 
-  {/* Logo */}
-  return (
-    <>
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4 }}
-        className="fixed top-6 left-6 z-40 font-bold text-xl"
-      >
-        <Image
-          src="/R.png"
-          alt="Profile photo"
-          width={35}
-          height={35}
-          className="rounded-xl shadow-lg object-cover cursor-pointer"
-          onClick={() => {
-            const el = document.getElementById("home");
-            if (el) {
-              el.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          }}
-        />
-      </motion.div>
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 80);
+    };
 
-      <AnimatePresence mode="wait">
-        {!showSide ? (
-          <motion.ul
-            key="center"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-10 right-10 z-40 flex gap-8 text-lm font-medium"
-          >
-            {SECTION_ORDER.map((id) => (
-              <li key={id}>
-                <a
-                  href={`#${id}`}
-                  onClick={handleClick(id)}
-                  className={`capitalize ${
-                    active === id
-                      ? "text-white underline"
-                      : "text-neutral-300 hover:text-white"
-                  }`}
-                >
-                  {id}
-                </a>
-              </li>
-            ))}
-          </motion.ul>
-        ) : (
-          <motion.ul
-            key="side"
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -100, opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="fixed left-6 top-1/4 z-40 flex -translate-y-1/2 flex-col gap-6 text-lm font-medium"
-          >
-            {SECTION_ORDER.map((id) => (
-              <li key={id}>
-                <a
-                  href={`#${id}`}
-                  onClick={handleClick(id)}
-                  className={`capitalize ${
-                    active === id
-                      ? "text-white underline"
-                      : "text-neutral-300 hover:text-white"
-                  }`}
-                >
-                  {id}
-                </a>
-              </li>
-            ))}
-          </motion.ul>
-        )}
-      </AnimatePresence>
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-      <AnimatePresence mode="wait">
-        {!showSide ? (
-          <motion.div
-            key="socials-left"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.4 }}
-            className="fixed bottom-20 left-50 z-40 flex"
-          >
-            <SocialLinks direction="row" />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="socials-right"
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 100, opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="fixed bottom-6 right-6 z-40 flex"
-          >
-            <SocialLinks direction="col" />
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  );
-}
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id as SectionId);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
 
-function SocialLinks({ direction = "row" }: { direction?: "row" | "col" }) {
-  const iconClasses =
-    "h-5 w-5 text-neutral-300 group-hover:text-sky-400 transition-colors duration-200";
+    SECTIONS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
 
-  const bubbleClasses =
-    "group flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-blue-500/20 transition duration-200";
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className={`flex ${direction === "col" ? "flex-col gap-6" : "flex-row gap-3"}`}>
-      <a
-        href="https://github.com/ZenorianDev"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={bubbleClasses}
-      >
-        <Github className={iconClasses} />
-      </a>
-      <a
-        href="https://facebook.com/zenorian.dev"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={bubbleClasses}
-      >
-        <Facebook className={iconClasses} />
-      </a>
-      <a
-        href="https://linkedin.com/in/zenoriandev"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={bubbleClasses}
-      >
-        <Linkedin className={iconClasses} />
-      </a>
-    </div>
+    <header
+      className={clsx(
+        "fixed top-0 left-0 w-full z-50 transition-all",
+        scrolled
+          ? "backdrop-blur bg-black/60 border-b border-white/5"
+          : "bg-transparent"
+      )}
+    >
+      <nav className="max-w-7xl mx-auto px-6 md:px-16 h-16 flex items-center justify-between">
+        <span className="text-sm tracking-widest font-semibold">
+          PORTFOLIO
+        </span>
+
+        <ul className="hidden md:flex items-center gap-10 text-sm tracking-widest">
+          {SECTIONS.map((id) => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                className={clsx(
+                  "transition relative",
+                  active === id
+                    ? "text-white"
+                    : "text-neutral-400 hover:text-white"
+                )}
+              >
+                {id.toUpperCase()}
+
+                {active === id && (
+                  <span className="absolute -bottom-2 left-0 h-px w-full bg-white" />
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile menu icon placeholder */}
+        <button className="md:hidden text-xl">☰</button>
+      </nav>
+    </header>
   );
 }
