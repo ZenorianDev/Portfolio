@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import clsx from "clsx";
 
 const SECTIONS = ["home", "about", "projects", "contact"] as const;
 type SectionId = (typeof SECTIONS)[number];
@@ -41,12 +40,11 @@ export default function Navbar() {
 
   return (
     <header
-      className={clsx(
-        "fixed top-0 left-0 w-full z-50 transition-all",
+      className={`fixed top-0 left-0 w-full z-50 transition-all ${
         scrolled
           ? "backdrop-blur bg-black/60 border-b border-white/5"
           : "bg-transparent"
-      )}
+      }`}
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-16 h-16 flex items-center justify-between">
         <span className="text-sm tracking-widest font-semibold">
@@ -58,15 +56,13 @@ export default function Navbar() {
             <li key={id}>
               <a
                 href={`#${id}`}
-                className={clsx(
-                  "transition relative",
+                className={`relative transition ${
                   active === id
                     ? "text-white"
                     : "text-neutral-400 hover:text-white"
-                )}
+                }`}
               >
                 {id.toUpperCase()}
-
                 {active === id && (
                   <span className="absolute -bottom-2 left-0 h-px w-full bg-white" />
                 )}

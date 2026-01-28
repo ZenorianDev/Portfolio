@@ -6,6 +6,7 @@ import About from "@/components/about";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
+import HeroSlider from "@/components/hero-slider";
 
 /* --------------------------------------------
    Motion presets
