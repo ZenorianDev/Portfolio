@@ -1,145 +1,143 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Navbar from "@/components/navbar";
 import About from "@/components/about";
 import Projects from "@/components/projects";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 
-const SECTION_ORDER = ["home", "about", "projects", "contact"] as const;
-type SectionId = (typeof SECTION_ORDER)[number];
-
-const SECTION_BG: Record<SectionId, string> = {
-  home: "linear-gradient(to bottom, #2a2a2a, #000)", 
-  about: "linear-gradient(to bottom, #1a1a1a, #000)",
-  projects: "linear-gradient(to bottom, #222, #000)",
-  contact: "linear-gradient(to bottom, #2a2a2a, #000)",
+/* --------------------------------------------
+   Motion presets
+--------------------------------------------- */
+const reveal = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0 },
 };
 
 export default function HomePage() {
-  const [active, setActive] = useState<SectionId>("home");
-  const [showSide, setShowSide] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setShowSide(window.scrollY > window.innerHeight * 0.6);
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id as SectionId);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-
-    SECTION_ORDER.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const bg = useMemo(() => SECTION_BG[active], [active]);
-
   return (
-    <main className="relative min-h-screen overflow-x-hidden">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={bg}
-          className="fixed inset-0 -z-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          style={{ background: bg }}
-        />
-      </AnimatePresence>
+    <main className="relative min-h-screen bg-black text-white overflow-x-hidden">
+      <Navbar active={"about"} showSide={false} />
 
-      <Navbar active={active} showSide={showSide} />
+      {/* ================= HERO ================= */}
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center px-6 md:px-16"
+      >
+        {/* Background portrait */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
 
-      <div className="mx-auto max-w-6xl px-4">
-        <section
-          id="home"
-          className="min-h-[90vh] grid place-items-left py-28 text-left"
-        >
-          <div>
-            <h1
-              className="mb-4 text-[clamp(3rem,10vw,7rem)] font-extrabold leading-none text-white [text-rendering:optimizeLegibility]"
-            >
+        <div className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left text */}
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={reveal}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="space-y-6"
+          >
+            <h1 className="text-[clamp(3rem,9vw,6.5rem)] font-extrabold leading-none tracking-tight">
               REANNE <br />
-              <span className="block ml-20 md:ml-40">LORRAINE</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-br from-lime-400 via-green-700 to-lime-400">
-                MARTINEZ
-              </span>
+              <span className="block ml-12 md:ml-24">LORRAINE</span>
+              <span className="block">MARTINEZ</span>
             </h1>
-            <p className="mb-6 text-neutral-300">
+
+            <p className="text-neutral-300 text-lg">
               Aspiring Full Stack Developer | Game Developer
             </p>
-            <div className="z-50 relative">
-              <div className="flex justify-left gap-3">
-                <a
-                  href="#projects"
-                  className="rounded-full bg-white/10 px-5 py-2 text-white cursor-pointer hover:bg-white/20 active:scale-95 transition-transform duration-150"
-                >
-                  View Projects
-                </a>
-                <a
-                  href="#contact"
-                  className="rounded-full border border-white/20 px-5 py-2 text-white cursor-pointer hover:bg-white/5 active:scale-95 transition-transform duration-150"
-                >
-                  Contact Me
-                </a>
+
+            <div className="flex gap-4 pt-2">
+              <a
+                href="#projects"
+                className="rounded-full bg-white/10 px-6 py-2 text-sm hover:bg-white/20 transition"
+              >
+                View Profile
+              </a>
+              <a
+                href="#contact"
+                className="rounded-full border border-white/20 px-6 py-2 text-sm hover:bg-white/5 transition"
+              >
+                Contact Me
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Right UI (01 / 05) */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="hidden lg:flex flex-col items-end gap-4"
+          >
+            <div className="flex items-center gap-4 text-sm tracking-widest">
+              <span className="font-semibold">01</span>
+              <span className="opacity-50">/ 05</span>
+              <div className="flex gap-3 ml-4">
+                <button className="hover:opacity-100 opacity-70 transition">
+                  ‹
+                </button>
+                <button className="hover:opacity-100 opacity-70 transition">
+                  ›
+                </button>
               </div>
             </div>
-          </div>
-        </section>
 
-        <section id="about">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <About />
+            <a
+              href="#about"
+              className="text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition"
+            >
+              View Profile
+            </a>
           </motion.div>
-        </section>
+        </div>
+      </section>
 
-        <section id="projects">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <Projects />
-          </motion.div>
-        </section>
+      {/* ================= ABOUT ================= */}
+      <section id="about" className="py-28 px-6 md:px-16">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          variants={reveal}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true, margin: "-120px" }}
+          className="max-w-6xl mx-auto"
+        >
+          <About />
+        </motion.div>
+      </section>
 
-        <section id="contact">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <Contact />
-          </motion.div>
-        </section>
+      {/* ================= PROJECTS ================= */}
+      <section id="projects" className="py-28 px-6 md:px-16">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          variants={reveal}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          viewport={{ once: true, margin: "-120px" }}
+          className="max-w-7xl mx-auto"
+        >
+          <Projects />
+        </motion.div>
+      </section>
 
-        <Footer />
-      </div>
+      {/* ================= CONTACT ================= */}
+      <section id="contact" className="py-28 px-6 md:px-16">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          variants={reveal}
+          transition={{ duration: 0.7, delay: 0.15 }}
+          viewport={{ once: true, margin: "-120px" }}
+          className="max-w-4xl mx-auto"
+        >
+          <Contact />
+        </motion.div>
+      </section>
+
+      <Footer />
     </main>
   );
 }
