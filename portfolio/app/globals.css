@@ -61,7 +61,7 @@ background: transparent;
 
 .hover-3d {
   position: relative;
-  display: inline-block;
+  display: block;
   perspective: 1200px;
 }
 
@@ -70,49 +70,49 @@ background: transparent;
   transform-style: preserve-3d;
 }
 
-.hover-3d > div:not(.card) {
+.hover-3d > div.zone {
   position: absolute;
   inset: 0;
   z-index: 20;
 }
 
 /* Top row */
-.hover-3d > div:nth-child(2):hover ~ .card {
+.hover-3d > div.zone:nth-child(1):hover ~ .card {
   transform: rotateX(12deg) rotateY(-12deg);
 }
-.hover-3d > div:nth-child(3):hover ~ .card {
+.hover-3d > div.zone:nth-child(2):hover ~ .card {
   transform: rotateX(12deg);
 }
-.hover-3d > div:nth-child(4):hover ~ .card {
+.hover-3d > div.zone:nth-child(3):hover ~ .card {
   transform: rotateX(12deg) rotateY(12deg);
 }
 
 /* Middle row */
-.hover-3d > div:nth-child(5):hover ~ .card {
+.hover-3d > div.zone:nth-child(4):hover ~ .card {
   transform: rotateY(-12deg);
 }
-.hover-3d > div:nth-child(6):hover ~ .card {
+.hover-3d > div.zone:nth-child(5):hover ~ .card {
   transform: rotateX(0deg) rotateY(0deg);
 }
-.hover-3d > div:nth-child(7):hover ~ .card {
+.hover-3d > div.zone:nth-child(6):hover ~ .card {
   transform: rotateY(12deg);
 }
 
 /* Bottom row */
-.hover-3d > div:nth-child(8):hover ~ .card {
+.hover-3d > div.zone:nth-child(7):hover ~ .card {
   transform: rotateX(-12deg) rotateY(-12deg);
 }
-.hover-3d > div:nth-child(9):hover ~ .card {
+.hover-3d > div.zone:nth-child(8):hover ~ .card {
   transform: rotateX(-12deg);
 }
-.hover-3d > div:nth-child(10):hover ~ .card {
+.hover-3d > div.zone:nth-child(9):hover ~ .card {
   transform: rotateX(-12deg) rotateY(12deg);
 }
 
-/* Glow on hover */
+/* Glow */
 .hover-3d:hover .card {
   box-shadow:
     0 20px 60px rgba(0,0,0,0.6),
-    0 0 40px rgba(168,85,247,0.25),
-    0 0 60px rgba(34,211,238,0.2);
+    0 0 40px rgba(168,85,247,0.35),
+    0 0 60px rgba(34,211,238,0.25);
 }

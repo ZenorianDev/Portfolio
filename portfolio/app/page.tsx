@@ -223,22 +223,23 @@ export default function HomePage() {
 
         {/* ---------- BOTTOM FLOATING 3D GLASS CARD ---------- */}
         <div className="absolute bottom-4 left-1/2 z-40 w-[94%] max-w-6xl -translate-x-1/2">
-          <a href="#" className="hover-3d block">
-            {/* 8 hover zones */}
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
-            <div />
+          <div className="hover-3d relative">
+            {/* 9 hover zones */}
+            <div className="zone" />
+            <div className="zone" />
+            <div className="zone" />
+            <div className="zone" />
+            <div className="zone" />
+            <div className="zone" />
+            <div className="zone" />
+            <div className="zone" />
+            <div className="zone" />
 
             {/* CARD */}
             <div className="card relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
 
-              {/* RGB glow border */}
-              <div className="pointer-events-none absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-fuchsia-500/40 via-cyan-400/40 to-violet-500/40 opacity-0 transition group-hover:opacity-100" />
+              {/* RGB glow edge */}
+              <div className="pointer-events-none absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-fuchsia-500/40 via-cyan-400/40 to-violet-500/40 opacity-0 transition hover-3d-hover:opacity-100" />
 
               {/* Glass reflection */}
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/40" />
@@ -321,7 +322,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-          </a>
+          </div>
         </div>
       </section>
 
