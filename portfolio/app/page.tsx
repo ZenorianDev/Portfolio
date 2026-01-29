@@ -140,22 +140,22 @@ export default function HomePage() {
         </div>
 
         {/* ---------- RIGHT COLUMN ---------- */}
-        <div className="relative z-10 hidden flex-col items-start gap-10 pl-12 lg:flex">
+        <div className="relative z-10 hidden flex-col items-start gap-6 pl-2 lg:flex top-2 -translate-y-1/2">
           {/* Slider */}
-          <div className="flex items-center gap-6 text-sm tracking-widest text-neutral-300">
+          <div className="flex items-center gap-6 text-2xl tracking-widest text-neutral-300">
             <span className="text-white font-semibold">01</span>
             <span>/ 04</span>
 
             <div className="ml-4 flex items-center gap-4">
               <button
                 aria-label="Previous slide"
-                className="text-lg transition hover:text-white"
+                className="text-2xl transition hover:text-white"
               >
                 ‹
               </button>
               <button
                 aria-label="Next slide"
-                className="text-lg transition hover:text-white"
+                className="text-xl transition hover:text-white"
               >
                 ›
               </button>
@@ -171,7 +171,6 @@ export default function HomePage() {
             View Profile
           </a>
 
-          <div className="h-px w-32 bg-white/20" />
         </div>
 
         {/* ---------- RIGHT VERTICAL SECTION INDICATORS ---------- */}
