@@ -126,8 +126,8 @@ export default function HomePage() {
         </div>
 
         {/* ---------- CENTER COLUMN (PORTRAIT) ---------- */}
-        <div className="pointer-events-none absolute inset-0 -z-10 lg:static lg:inset-auto lg:z-0">
-          <div className="relative h-[100vh] w-full max-w-[420px] mx-auto">
+        <div className="pointer-events-none absolute inset-0 -z-10 lg:static lg:inset-auto lg:z-10">
+          <div className="relative h-[90vh] w-full max-w-[420px] mx-auto">
             <Image
               src="/portrait.png"
               alt="Portrait of Reanne Martinez"
@@ -191,7 +191,7 @@ export default function HomePage() {
         </div>
 
         {/* ---------- BOTTOM FLOATING GLASS CARD ---------- */}
-        <div className="absolute bottom-10 left-1/2 z-40 w-[94%] max-w-6xl -translate-x-1/2">
+        <div className="absolute bottom-2 left-1/2 z-40 w-[94%] max-w-6xl -translate-x-1/2">
           <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_0_40px_rgba(255,255,255,0.04)]">
             {/* Glass reflection layer */}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/40" />
