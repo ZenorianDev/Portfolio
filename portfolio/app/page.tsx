@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 /* ------------------------------- */
@@ -12,6 +11,34 @@ type SectionId = (typeof SECTIONS)[number];
 export default function HomePage() {
   const [activeSection, setActiveSection] = useState<SectionId>("home");
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  const [active, setActive] = useState<SectionId>("home");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id as SectionId);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    SECTIONS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const goTo = (id: SectionId) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const currentIndex = SECTIONS.indexOf(active);
 
   /* ------------------------------- */
   /* Scroll progress (hero line)     */
@@ -125,52 +152,56 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* ---------- CENTER COLUMN (PORTRAIT) ---------- */}
-        <div className="pointer-events-none absolute inset-0 -z-10 lg:static lg:inset-auto lg:z-10">
-          <div className="relative h-[90vh] w-full max-w-[420px] mx-auto">
-            <Image
-              src="/portrait.png"
-              alt="Portrait of Reanne Martinez"
-              fill
-              priority
-              sizes="(max-width: 1024px) 80vw, 420px"
-              className="object-cover grayscale opacity-80"
-            />
-          </div>
-        </div>
+        {/* ---------- RIGHT CONTROL PANEL ---------- */}
+        <div className="absolute right-48 top-1/3 z-30 hidden -translate-y-1/2 flex-col gap-10 lg:flex">
+          {/* Counter + Arrows */}
+          <div className="flex flex-col gap-6">
+            <div className="flex items-center gap-6 text-5xl tracking-widest">
+              <span className="text-white font-semibold">
+                {String(currentIndex + 1).padStart(2, "0")}
+              </span>
+              <span className="text-neutral-500">/ {SECTIONS.length}</span>
 
-        {/* ---------- RIGHT COLUMN ---------- */}
-        <div className="relative z-10 hidden flex-col items-start gap-6 pl-2 lg:flex top-2 -translate-y-1/2">
-          {/* Slider */}
-          <div className="flex items-center gap-6 text-2xl tracking-widest text-neutral-300">
-            <span className="text-white font-semibold">01</span>
-            <span>/ 04</span>
+              <div className="ml-6 flex items-center gap-4">
+                <button
+                  aria-label="Previous section"
+                  onClick={() =>
+                    goTo(SECTIONS[Math.max(currentIndex - 1, 0)])
+                  }
+                  className="text-8xl text-neutral-400 transition hover:text-white active:scale-90"
+                >
+                  ‹
+                </button>
+                <button
+                  aria-label="Next section"
+                  onClick={() =>
+                    goTo(SECTIONS[Math.min(currentIndex + 1, SECTIONS.length - 1)])
+                  }
+                  className="text-8xl text-neutral-400 transition hover:text-white active:scale-90"
+                >
+                  ›
+                </button>
+              </div>
+            </div>
 
-            <div className="ml-4 flex items-center gap-4">
-              <button
-                aria-label="Previous slide"
-                className="text-2xl transition hover:text-white"
-              >
-                ‹
-              </button>
-              <button
-                aria-label="Next slide"
-                className="text-xl transition hover:text-white"
-              >
-                ›
-              </button>
+            {/* Progress Line */}
+            <div className="relative h-[4px] w-80 bg-white/20 overflow-hidden rounded-full">
+              <div
+                className="absolute left-0 top-0 h-full bg-white transition-all duration-500"
+                style={{
+                  width: `${((currentIndex + 1) / SECTIONS.length) * 100}%`,
+                }}
+              />
             </div>
           </div>
 
-          <div className="h-px w-32 bg-white/20" />
-
-          <a
-            href="#about"
-            className="text-sm uppercase tracking-widest text-neutral-400 transition hover:text-white"
+          {/* View Profile */}
+          <button
+            onClick={() => goTo("about")}
+            className="text-sl font-semibold uppercase tracking-widest text-neutral-400 transition hover:text-white"
           >
             View Profile
-          </a>
-
+          </button>
         </div>
 
         {/* ---------- RIGHT VERTICAL SECTION INDICATORS ---------- */}
