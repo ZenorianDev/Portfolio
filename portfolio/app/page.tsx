@@ -63,7 +63,7 @@ export default function HomePage() {
           </span>
 
           {/* Center */}
-          <ul className="hidden md:flex items-center gap-14 text-xs tracking-widest text-neutral-300">
+          <ul className="hidden md:flex items-center gap-14 text-xm tracking-widest text-neutral-300">
             {SECTIONS.map((id) => (
               <li key={id}>
                 <a
@@ -112,13 +112,13 @@ export default function HomePage() {
               REANNE MARTINEZ
             </h1>
 
-            <p className="max-w-xs text-neutral-300 text-sm leading-relaxed">
+            <p className="max-w-xm text-neutral-300 text-sl leading-relaxed">
               Aspiring Full Stack Developer | Game Developer
             </p>
 
             <a
               href="#contact"
-              className="mt-2 inline-flex w-fit items-center justify-center rounded-full border border-white/30 px-7 py-2 text-xs tracking-wide transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40"
+              className="mt-2 inline-flex w-fit items-center justify-center rounded-full border border-white/30 px-7 py-2 text-xm tracking-wide transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40"
             >
               Contact me
             </a>
@@ -219,7 +219,7 @@ export default function HomePage() {
                 </div>
 
                 {/* TEXT GRID */}
-                <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-10 text-sm leading-relaxed">
+                <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-10 text-sl leading-relaxed">
                   {/* Left paragraph */}
                   <p className="text-white/70">
                     I&apos;m an aspiring Full Stack Developer and Game Developer with a deep
