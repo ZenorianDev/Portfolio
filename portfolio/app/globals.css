@@ -58,3 +58,40 @@ border-radius: 999px;
 *::-webkit-scrollbar-track {
 background: transparent;
 }
+
+.hover-3d {
+  position: relative;
+  perspective: 1200px;
+}
+
+.hover-3d > div > div:last-child > div:nth-child(1):hover ~ div {
+  transform: rotateX(12deg) rotateY(-12deg);
+}
+.hover-3d > div > div:last-child > div:nth-child(2):hover ~ div {
+  transform: rotateX(12deg) rotateY(0deg);
+}
+.hover-3d > div > div:last-child > div:nth-child(3):hover ~ div {
+  transform: rotateX(12deg) rotateY(12deg);
+}
+.hover-3d > div > div:last-child > div:nth-child(4):hover ~ div {
+  transform: rotateX(0deg) rotateY(-12deg);
+}
+.hover-3d > div > div:last-child > div:nth-child(5):hover ~ div {
+  transform: rotateX(0deg) rotateY(0deg);
+}
+.hover-3d > div > div:last-child > div:nth-child(6):hover ~ div {
+  transform: rotateX(0deg) rotateY(12deg);
+}
+.hover-3d > div > div:last-child > div:nth-child(7):hover ~ div {
+  transform: rotateX(-12deg) rotateY(-12deg);
+}
+.hover-3d > div > div:last-child > div:nth-child(8):hover ~ div {
+  transform: rotateX(-12deg) rotateY(0deg);
+}
+.hover-3d > div > div:last-child > div:nth-child(9):hover ~ div {
+  transform: rotateX(-12deg) rotateY(12deg);
+}
+
+.hover-3d > div {
+  transition: transform 0.25s ease-out;
+}
