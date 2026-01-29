@@ -98,8 +98,8 @@ export default function HomePage() {
         {/* ---------- LEFT COLUMN ---------- */}
         <div className="relative z-10 flex items-start gap-10">
           {/* Accent + progress line */}
-          <div className="relative flex flex-col items-center">
-            <span className="h-40 w-px bg-white/20" />
+          <div className="relative flex flex-col items-center top-2 -translate-1/3">
+            <span className="h-50 w-px bg-white/20" />
             <span
               className="absolute top-0 w-px bg-white transition-all"
               style={{ height: `${scrollProgress}%` }}
@@ -107,15 +107,13 @@ export default function HomePage() {
           </div>
 
           {/* Name block */}
-          <div className="flex flex-col gap-6">
-            <h1 className="text-[clamp(3.2rem,7vw,6.4rem)] font-extrabold leading-none tracking-tight">
-              REANNE <br />
-              <span className="block ml-14 md:ml-24">MARTINEZ</span>
+          <div className="flex flex-col gap-6 top-2 -translate-y-1/4">
+            <h1 className="text-[clamp(3.2rem,6vw,6.4rem)] font-extrabold leading-none tracking-tight">
+              REANNE MARTINEZ
             </h1>
 
             <p className="max-w-xs text-neutral-300 text-sm leading-relaxed">
-              Aspiring Full Stack Developer <br />
-              & Game Developer
+              Aspiring Full Stack Developer | Game Developer
             </p>
 
             <a
@@ -129,15 +127,15 @@ export default function HomePage() {
 
         {/* ---------- CENTER COLUMN (PORTRAIT) ---------- */}
         <div className="pointer-events-none absolute inset-0 -z-10 lg:static lg:inset-auto lg:z-0">
-          <div className="relative mx-auto h-full max-h-[88vh] w-full max-w-[420px] lg:max-w-none">
+          <div className="relative h-[100vh] w-full max-w-[420px] mx-auto">
             <Image
               src="/portrait.png"
               alt="Portrait of Reanne Martinez"
               fill
               priority
-              className="object-cover object-center grayscale opacity-70"
+              sizes="(max-width: 1024px) 80vw, 420px"
+              className="object-cover grayscale opacity-80"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90" />
           </div>
         </div>
 
