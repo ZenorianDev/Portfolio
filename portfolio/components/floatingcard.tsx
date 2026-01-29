@@ -18,22 +18,25 @@ export default function FloatingCard() {
     const midX = rect.width / 2;
     const midY = rect.height / 2;
 
-    const rotateY = ((x - midX) / midX) * 12;
-    const rotateX = -((y - midY) / midY) * 12;
+    // MICRO tilt only
+    const rotateY = ((x - midX) / midX) * 3;
+    const rotateX = -((y - midY) / midY) * 3;
 
     card.style.transform = `
       perspective(1200px)
       rotateX(${rotateX}deg)
       rotateY(${rotateY}deg)
-      translateZ(25px)
+      translateZ(6px)
     `;
 
+    // RGB glow subtly shifts, not flashlight
     glow.style.background = `
       radial-gradient(
-        600px circle at ${x}px ${y}px,
-        rgba(168,85,247,0.35),
-        rgba(34,211,238,0.25),
-        transparent 60%
+        180px circle at ${x}px ${y}px,
+        rgba(168,85,247,0.7),
+        rgba(34,211,238,0.45),
+        rgba(236,72,153,0.35),
+        transparent 65%
       )
     `;
   };
@@ -50,7 +53,15 @@ export default function FloatingCard() {
       translateZ(0px)
     `;
 
-    glow.style.background = "transparent";
+    // Back to soft ambient glow
+    glow.style.background = `
+      linear-gradient(
+        135deg,
+        rgba(168,85,247,0.7),
+        rgba(34,211,238,0.5),
+        rgba(236,72,153,0.45)
+      )
+    `;
   };
 
   return (
