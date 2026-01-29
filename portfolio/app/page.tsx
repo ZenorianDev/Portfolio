@@ -58,7 +58,7 @@ export default function HomePage() {
           aria-label="Primary navigation"
         >
           {/* Left */}
-          <span className="text-sm font-semibold tracking-widest relative -left-6">
+          <span className="text-xl font-semibold tracking-widest relative -left-6">
             PORTFOLIO
           </span>
 
