@@ -194,6 +194,7 @@ export default function HomePage() {
 
         {/* ---------- BOTTOM FLOATING CARD ---------- */}
         <div className="absolute bottom-10 left-1/2 z-30 w-[92%] max-w-6xl -translate-x-1/2 rounded-2xl bg-white/5 backdrop-blur-md px-8 py-6">
+          <div className="divider lg:divider-horizontal"></div>
           <div className="grid items-start gap-6 md:grid-cols-[1.2fr_2.2fr_2.2fr_auto]">
             {/* SOCIAL LABEL + LINKS */}
             <div className="flex flex-col gap-3 text-xs uppercase tracking-widest text-neutral-300">
