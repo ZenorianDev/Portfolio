@@ -222,19 +222,28 @@ export default function HomePage() {
         </div>
 
         {/* ---------- BOTTOM FLOATING 3D GLASS CARD ---------- */}
-        <div className="absolute bottom-4 left-1/2 z-40 w-[94%] max-w-6xl -translate-x-1/2 perspective-[1200px]">
-          <div className="hover-3d relative group">
-            {/* RGB glow layer */}
-            <div className="pointer-events-none absolute -inset-1 rounded-2xl bg-gradient-to-r from-fuchsia-500 via-cyan-400 to-violet-500 opacity-0 blur-xl transition group-hover:opacity-70" />
+        <div className="absolute bottom-4 left-1/2 z-40 w-[94%] max-w-6xl -translate-x-1/2">
+          <a href="#" className="hover-3d block">
+            {/* 8 hover zones */}
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
 
-            {/* Glass card */}
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-out [transform-style:preserve-3d] group-hover:shadow-[0_40px_120px_rgba(0,0,0,0.8)]">
+            {/* CARD */}
+            <div className="card relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
+
+              {/* RGB glow border */}
+              <div className="pointer-events-none absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-fuchsia-500/40 via-cyan-400/40 to-violet-500/40 opacity-0 transition group-hover:opacity-100" />
 
               {/* Glass reflection */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/40 opacity-70" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/40" />
 
-              {/* ============== YOUR CONTENT ============== */}
-              <div className="relative grid grid-cols-[1fr_auto] gap-10 px-10 py-8 translate-z-[30px]">
+              <div className="relative grid grid-cols-[1fr_auto] gap-10 px-10 py-8">
                 {/* ================= LEFT CONTENT ================= */}
                 <div className="flex flex-col gap-6">
                   {/* SOCIAL ROW */}
@@ -311,15 +320,8 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-
-              {/* ============== 3D HOVER ZONES ============== */}
-              <div className="absolute inset-0 grid grid-cols-3 grid-rows-3">
-                {Array.from({ length: 9 }).map((_, i) => (
-                  <div key={i} className="z-10" />
-                ))}
-              </div>
             </div>
-          </div>
+          </a>
         </div>
       </section>
 
