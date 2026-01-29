@@ -61,37 +61,58 @@ background: transparent;
 
 .hover-3d {
   position: relative;
+  display: inline-block;
   perspective: 1200px;
 }
 
-.hover-3d > div > div:last-child > div:nth-child(1):hover ~ div {
+.hover-3d > .card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform-style: preserve-3d;
+}
+
+.hover-3d > div:not(.card) {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+}
+
+/* Top row */
+.hover-3d > div:nth-child(2):hover ~ .card {
   transform: rotateX(12deg) rotateY(-12deg);
 }
-.hover-3d > div > div:last-child > div:nth-child(2):hover ~ div {
-  transform: rotateX(12deg) rotateY(0deg);
+.hover-3d > div:nth-child(3):hover ~ .card {
+  transform: rotateX(12deg);
 }
-.hover-3d > div > div:last-child > div:nth-child(3):hover ~ div {
+.hover-3d > div:nth-child(4):hover ~ .card {
   transform: rotateX(12deg) rotateY(12deg);
 }
-.hover-3d > div > div:last-child > div:nth-child(4):hover ~ div {
-  transform: rotateX(0deg) rotateY(-12deg);
+
+/* Middle row */
+.hover-3d > div:nth-child(5):hover ~ .card {
+  transform: rotateY(-12deg);
 }
-.hover-3d > div > div:last-child > div:nth-child(5):hover ~ div {
+.hover-3d > div:nth-child(6):hover ~ .card {
   transform: rotateX(0deg) rotateY(0deg);
 }
-.hover-3d > div > div:last-child > div:nth-child(6):hover ~ div {
-  transform: rotateX(0deg) rotateY(12deg);
+.hover-3d > div:nth-child(7):hover ~ .card {
+  transform: rotateY(12deg);
 }
-.hover-3d > div > div:last-child > div:nth-child(7):hover ~ div {
+
+/* Bottom row */
+.hover-3d > div:nth-child(8):hover ~ .card {
   transform: rotateX(-12deg) rotateY(-12deg);
 }
-.hover-3d > div > div:last-child > div:nth-child(8):hover ~ div {
-  transform: rotateX(-12deg) rotateY(0deg);
+.hover-3d > div:nth-child(9):hover ~ .card {
+  transform: rotateX(-12deg);
 }
-.hover-3d > div > div:last-child > div:nth-child(9):hover ~ div {
+.hover-3d > div:nth-child(10):hover ~ .card {
   transform: rotateX(-12deg) rotateY(12deg);
 }
 
-.hover-3d > div {
-  transition: transform 0.25s ease-out;
+/* Glow on hover */
+.hover-3d:hover .card {
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.6),
+    0 0 40px rgba(168,85,247,0.25),
+    0 0 60px rgba(34,211,238,0.2);
 }
