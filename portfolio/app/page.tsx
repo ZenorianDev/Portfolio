@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Navbar from "@/components/navbar";
 import FloatingCard from "@/components/floatingcard";
 
 /* ------------------------------- */
@@ -80,43 +81,7 @@ export default function HomePage() {
   return (
     <main className="relative min-h-screen bg-black text-white overflow-hidden">
       {/* ================= NAVBAR ================= */}
-      <header className="absolute top-0 left-0 z-50 w-full">
-        <nav
-          className="mx-auto flex h-20 max-w-[92rem] items-center justify-between px-6 md:px-12"
-          aria-label="Primary navigation"
-        >
-          {/* Left */}
-          <span className="text-xl font-semibold tracking-widest relative -left-6">
-            PORTFOLIO
-          </span>
-
-          {/* Center */}
-          <ul className="hidden md:flex items-center gap-14 text-xm font-semibold tracking-widest text-neutral-300">
-            {SECTIONS.map((id) => (
-              <li key={id}>
-                <a
-                  href={`#${id}`}
-                  className={`transition ${
-                    activeSection === id
-                      ? "text-white"
-                      : "hover:text-white"
-                  }`}
-                >
-                  {id.toUpperCase()}
-                </a>
-              </li>
-            ))}
-          </ul>
-
-          {/* Right */}
-          <button
-            aria-label="Open menu"
-            className="text-xl md:hidden"
-          >
-            ☰
-          </button>
-        </nav>
-      </header>
+      <Navbar activeSection={activeSection} />
 
       {/* ================= HERO ================= */}
       <section

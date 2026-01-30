@@ -1,79 +1,83 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Link from "next/link";
 
 const SECTIONS = ["home", "about", "projects", "contact"] as const;
 type SectionId = (typeof SECTIONS)[number];
 
-export default function Navbar() {
-  const [active, setActive] = useState<SectionId>("home");
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 80);
-    };
-
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id as SectionId);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-
-    SECTIONS.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
+export default function Navbar({
+  activeSection,
+}: {
+  activeSection: SectionId;
+}) {
+  const [open, setOpen] = useState(false);
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all ${
-        scrolled
-          ? "backdrop-blur bg-black/60 border-b border-white/5"
-          : "bg-transparent"
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-6 md:px-16 h-16 flex items-center justify-between">
-        <span className="text-sm tracking-widest font-semibold">
+    <header className="absolute top-0 left-0 z-50 w-full">
+      <nav
+        className="mx-auto flex h-20 max-w-[92rem] items-center justify-between px-6 md:px-12"
+        aria-label="Primary navigation"
+      >
+        {/* Left */}
+        <Link
+          href="/#home"
+          className="text-xl font-semibold tracking-widest relative -left-6"
+        >
           PORTFOLIO
-        </span>
+        </Link>
 
-        <ul className="hidden md:flex items-center gap-10 text-sm tracking-widest">
+        {/* Center (Desktop) */}
+        <ul className="hidden md:flex items-center gap-14 text-xm font-semibold tracking-widest text-neutral-300">
           {SECTIONS.map((id) => (
             <li key={id}>
-              <a
-                href={`#${id}`}
-                className={`relative transition ${
-                  active === id
+              <Link
+                href={`/#${id}`}
+                className={`transition ${
+                  activeSection === id
                     ? "text-white"
-                    : "text-neutral-400 hover:text-white"
+                    : "hover:text-white"
                 }`}
               >
                 {id.toUpperCase()}
-                {active === id && (
-                  <span className="absolute -bottom-2 left-0 h-px w-full bg-white" />
-                )}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
-        {/* Mobile menu icon placeholder */}
-        <button className="md:hidden text-xl">☰</button>
+        {/* Right (Mobile button) */}
+        <button
+          aria-label="Open menu"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="relative z-[60] text-xl md:hidden transition hover:text-white"
+        >
+          {open ? "✕" : "☰"}
+        </button>
       </nav>
+
+      {/* ================= MOBILE OVERLAY MENU ================= */}
+      <div
+        className={`fixed inset-0 z-40 bg-black/95 backdrop-blur-xl transition-opacity duration-300 md:hidden ${
+          open
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <ul className="flex h-full flex-col items-center justify-center gap-10 text-lg font-semibold tracking-widest text-neutral-300">
+          {SECTIONS.map((id) => (
+            <li key={id}>
+              <Link
+                href={`/#${id}`}
+                onClick={() => setOpen(false)}
+                className="transition hover:text-white"
+              >
+                {id.toUpperCase()}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </header>
   );
 }
