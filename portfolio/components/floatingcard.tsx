@@ -102,15 +102,15 @@ export default function FloatingCard() {
                 <span className="text-white/40">Social</span>
 
                 <div className="flex items-center gap-6">
-                  <a href="#" className="hover:text-white transition">
+                  <a href="https://github.com/ZenorianDev" className="hover:text-white transition">
                     Github
                   </a>
                   <span className="h-4 w-px bg-white/20" />
-                  <a href="#" className="hover:text-white transition">
+                  <a href="https://www.facebook.com/zenorian.dev" className="hover:text-white transition">
                     Facebook
                   </a>
                   <span className="h-4 w-px bg-white/20" />
-                  <a href="#" className="hover:text-white transition">
+                  <a href="https://www.linkedin.com/in/zenoriandev" className="hover:text-white transition">
                     LinkedIn
                   </a>
                 </div>
@@ -138,7 +138,7 @@ export default function FloatingCard() {
             <div className="flex items-center gap-8">
               <div className="flex flex-col items-center gap-4">
                 <a
-                  href="https://github.com/"
+                  href="https://github.com/ZenorianDev"
                   aria-label="GitHub profile"
                   className="h-11 w-11 rounded-full border border-white/20 bg-black/30 backdrop-blur-md grid place-items-center transition hover:border-white hover:bg-white/10"
                 >
@@ -148,7 +148,7 @@ export default function FloatingCard() {
                 </a>
 
                 <a
-                  href="https://linkedin.com/"
+                  href="https://www.linkedin.com/in/zenoriandev"
                   aria-label="LinkedIn profile"
                   className="h-11 w-11 rounded-full border border-white/20 bg-black/30 backdrop-blur-md grid place-items-center transition hover:border-white hover:bg-white/10"
                 >
@@ -158,7 +158,7 @@ export default function FloatingCard() {
                 </a>
 
                 <a
-                  href="https://facebook.com/"
+                  href="https://www.facebook.com/zenorian.dev"
                   aria-label="Facebook profile"
                   className="h-11 w-11 rounded-full border border-white/20 bg-black/30 backdrop-blur-md grid place-items-center transition hover:border-white hover:bg-white/10"
                 >

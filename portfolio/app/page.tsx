@@ -141,7 +141,7 @@ export default function HomePage() {
               <span className="block ml-12 md:ml-24">MARTINEZ</span>
             </h1>
 
-            <p className="max-w-xm text-neutral-300 text-sl leading-relaxed">
+            <p className="max-w-xm text-neutral-300 text-sl font-semibold leading-relaxed">
               Software Engineering Student | Strong Communication & Technical Skills
             </p>
 
