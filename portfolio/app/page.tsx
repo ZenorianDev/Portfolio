@@ -197,13 +197,15 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* View Profile */}
-          <button
-            onClick={() => goTo("about")}
+          {/* View Resume */}
+          <a
+            href="https://www.canva.com/design/DAGzKZjBSAA/TUOxOy9U9QUN0KzJre8xsQ/edit?utm_content=DAGzKZjBSAA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-sl font-semibold uppercase tracking-widest text-neutral-400 transition hover:text-white"
           >
-            View Profile
-          </button>
+            View Resume
+          </a>
         </div>
 
         {/* ---------- RIGHT VERTICAL SECTION INDICATORS ---------- */}
