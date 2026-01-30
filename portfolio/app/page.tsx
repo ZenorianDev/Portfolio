@@ -198,6 +198,235 @@ export default function HomePage() {
       <section id="about" className="min-h-screen" />
       <section id="projects" className="min-h-screen" />
       <section id="contact" className="min-h-screen" />
+
+            {/* ================= ABOUT ================= */}
+      <section
+        id="about"
+        className="relative min-h-screen flex items-center px-6 md:px-12 py-32"
+      >
+        <div className="mx-auto grid max-w-6xl grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16">
+          {/* Left */}
+          <div className="flex flex-col gap-8">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+              About Me
+            </h2>
+
+            <p className="text-white/70 leading-relaxed max-w-xl">
+              I’m a software engineering student with a strong interest in building
+              immersive, user-centered digital experiences. I enjoy working at the
+              intersection of design and technology — turning ideas into polished,
+              functional interfaces that feel intuitive and engaging.
+            </p>
+
+            <p className="text-white/60 leading-relaxed max-w-xl">
+              My strengths include strong communication, problem-solving, and the
+              ability to collaborate effectively with people from diverse
+              backgrounds. I’m constantly learning and experimenting with modern
+              tools, frameworks, and UI patterns.
+            </p>
+
+            <div className="flex flex-wrap gap-4 pt-4">
+              {[
+                "JavaScript",
+                "TypeScript",
+                "React",
+                "Next.js",
+                "Tailwind",
+                "Node.js",
+                "UI/UX",
+                "Git",
+              ].map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-white/20 px-4 py-1.5 text-xs tracking-wide text-white/70"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Right (Stats / Highlights) */}
+          <div className="grid grid-cols-2 gap-6">
+            {[
+              { label: "Projects Built", value: "20+" },
+              { label: "Technologies Used", value: "10+" },
+              { label: "Years Learning", value: "3+" },
+              { label: "Collabs & Teams", value: "15+" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+              >
+                <div className="text-3xl font-bold">{stat.value}</div>
+                <div className="mt-1 text-xs uppercase tracking-widest text-white/50">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= PROJECTS ================= */}
+      <section
+        id="projects"
+        className="relative min-h-screen px-6 md:px-12 py-32"
+      >
+        <div className="mx-auto max-w-6xl flex flex-col gap-16">
+          {/* Header */}
+          <div className="flex flex-col gap-4 max-w-2xl">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+              Projects
+            </h2>
+            <p className="text-white/60 leading-relaxed">
+              A selection of projects focused on clean UI, performance, and
+              user-centered design — blending engineering with visual polish.
+            </p>
+          </div>
+
+          {/* Project Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Gamified Portfolio",
+                desc: "An immersive, stat-based portfolio system inspired by RPG UI patterns.",
+                tech: ["Next.js", "Tailwind", "Framer Motion"],
+              },
+              {
+                title: "Business Landing Platform",
+                desc: "High-conversion marketing site with responsive layout and motion design.",
+                tech: ["React", "TypeScript", "GSAP"],
+              },
+              {
+                title: "Student Management System",
+                desc: "Full-stack CRUD system with authentication and role-based access.",
+                tech: ["Node.js", "PostgreSQL", "Express"],
+              },
+              {
+                title: "E-commerce UI Kit",
+                desc: "Reusable UI component system for modern online stores.",
+                tech: ["React", "Storybook", "Tailwind"],
+              },
+              {
+                title: "Portfolio CMS",
+                desc: "Headless CMS-driven portfolio system for rapid content updates.",
+                tech: ["Next.js", "Sanity", "GraphQL"],
+              },
+              {
+                title: "Interactive Data Dashboard",
+                desc: "Real-time visualization dashboard with dynamic charts.",
+                tech: ["React", "Recharts", "REST API"],
+              },
+            ].map((project) => (
+              <div
+                key={project.title}
+                className="group relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 transition hover:border-white/30 hover:bg-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+              >
+                <div className="flex flex-col gap-4">
+                  <h3 className="text-lg font-semibold tracking-tight group-hover:text-white transition">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-sm text-white/60 leading-relaxed">
+                    {project.desc}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="rounded-full border border-white/20 px-3 py-1 text-[10px] tracking-wide text-white/60"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 via-transparent to-black/40 opacity-0 transition group-hover:opacity-100" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= CONTACT ================= */}
+      <section
+        id="contact"
+        className="relative min-h-screen flex items-center px-6 md:px-12 py-32"
+      >
+        <div className="mx-auto grid max-w-6xl grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16">
+          {/* Left */}
+          <div className="flex flex-col gap-8">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+              Let’s Connect
+            </h2>
+
+            <p className="text-white/70 leading-relaxed max-w-xl">
+              Whether you’d like to collaborate, ask a question, or discuss a
+              project idea, feel free to reach out. I’m always open to meaningful
+              conversations and new opportunities.
+            </p>
+
+            <div className="flex flex-col gap-4 pt-4 text-sm text-white/70">
+              <div>
+                <span className="text-white/40">Email:</span>{" "}
+                reanne@example.com
+              </div>
+              <div>
+                <span className="text-white/40">Location:</span> Philippines
+              </div>
+            </div>
+          </div>
+
+          {/* Right (Form) */}
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className="flex flex-col gap-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
+          >
+            <div className="flex flex-col gap-2">
+              <label className="text-xs uppercase tracking-widest text-white/50">
+                Name
+              </label>
+              <input
+                type="text"
+                placeholder="Your name"
+                className="rounded-lg border border-white/20 bg-black/40 px-4 py-2 text-sm outline-none focus:border-white/50"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="text-xs uppercase tracking-widest text-white/50">
+                Email
+              </label>
+              <input
+                type="email"
+                placeholder="you@email.com"
+                className="rounded-lg border border-white/20 bg-black/40 px-4 py-2 text-sm outline-none focus:border-white/50"
+              />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <label className="text-xs uppercase tracking-widest text-white/50">
+                Message
+              </label>
+              <textarea
+                rows={4}
+                placeholder="Your message..."
+                className="resize-none rounded-lg border border-white/20 bg-black/40 px-4 py-2 text-sm outline-none focus:border-white/50"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="mt-2 inline-flex w-fit items-center justify-center rounded-full border border-white/30 px-7 py-2 text-xs tracking-wide transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
     </main>
   );
 }
