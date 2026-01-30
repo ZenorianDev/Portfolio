@@ -199,71 +199,136 @@ export default function HomePage() {
       <section id="projects" className="min-h-screen" />
       <section id="contact" className="min-h-screen" />
 
-            {/* ================= ABOUT ================= */}
+      {/* ================= ABOUT ================= */}
       <section
         id="about"
-        className="relative min-h-screen flex items-center px-6 md:px-12 py-32"
+        className="relative min-h-screen px-6 md:px-12 py-32"
       >
-        <div className="mx-auto grid max-w-6xl grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16">
-          {/* Left */}
-          <div className="flex flex-col gap-8">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+        <div className="mx-auto max-w-7xl flex flex-col gap-12">
+          {/* ---------- HEADER ---------- */}
+          <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-[0_25px_80px_rgba(0,0,0,0.7)]">
+            <h2 className="text-2xl md:text-3xl font-semibold tracking-wide">
               About Me
             </h2>
-
-            <p className="text-white/70 leading-relaxed max-w-xl">
-              I’m a software engineering student with a strong interest in building
-              immersive, user-centered digital experiences. I enjoy working at the
-              intersection of design and technology — turning ideas into polished,
-              functional interfaces that feel intuitive and engaging.
+            <p className="mt-4 max-w-4xl text-white/70 leading-relaxed">
+              I aspire to become the best developer and designer I can possibly be.
+              With a focus on logic, creativity, and growth, I strive to build
+              impactful projects and continuously improve my skills. My mission is
+              to create intuitive solutions that make a meaningful difference in the
+              digital world.
             </p>
 
-            <p className="text-white/60 leading-relaxed max-w-xl">
-              My strengths include strong communication, problem-solving, and the
-              ability to collaborate effectively with people from diverse
-              backgrounds. I’m constantly learning and experimenting with modern
-              tools, frameworks, and UI patterns.
-            </p>
-
-            <div className="flex flex-wrap gap-4 pt-4">
-              {[
-                "JavaScript",
-                "TypeScript",
-                "React",
-                "Next.js",
-                "Tailwind",
-                "Node.js",
-                "UI/UX",
-                "Git",
-              ].map((skill) => (
-                <span
-                  key={skill}
-                  className="rounded-full border border-white/20 px-4 py-1.5 text-xs tracking-wide text-white/70"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
+            {/* subtle divider line */}
+            <span className="absolute bottom-0 left-8 right-8 h-px bg-white/10" />
           </div>
 
-          {/* Right (Stats / Highlights) */}
-          <div className="grid grid-cols-2 gap-6">
-            {[
-              { label: "Projects Built", value: "20+" },
-              { label: "Technologies Used", value: "10+" },
-              { label: "Years Learning", value: "3+" },
-              { label: "Collabs & Teams", value: "15+" },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_20px_60px_rgba(0,0,0,0.6)]"
-              >
-                <div className="text-3xl font-bold">{stat.value}</div>
-                <div className="mt-1 text-xs uppercase tracking-widest text-white/50">
-                  {stat.label}
+          {/* ---------- GRID ROW ---------- */}
+          <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.2fr_0.9fr] gap-8">
+            {/* ================= LEFT: PERSONAL BACKGROUND ================= */}
+            <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_25px_80px_rgba(0,0,0,0.7)] flex flex-col gap-6">
+              {/* Title */}
+              <div className="flex items-center justify-between">
+                <h3 className="text-sm uppercase tracking-widest text-white/80">
+                  Personal Background
+                </h3>
+                <span className="text-xs text-white/40">LEVEL 6</span>
+              </div>
+
+              {/* Avatar */}
+              <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40 h-48 flex items-center justify-center">
+                <span className="text-white/30 text-sm">Profile Image</span>
+              </div>
+
+              {/* Info */}
+              <div className="flex flex-col gap-3 text-sm text-white/70">
+                <div className="flex justify-between">
+                  <span className="text-white/40">Age</span>
+                  <span>—</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-white/40">Birthday</span>
+                  <span>—</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-white/40">Location</span>
+                  <span>Philippines</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-white/40">Email</span>
+                  <span>reanne@email.com</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-white/40">Role</span>
+                  <span>Web Developer</span>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* ================= CENTER: CORE ATTRIBUTES ================= */}
+            <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_25px_80px_rgba(0,0,0,0.7)] flex flex-col gap-6">
+              {/* Title */}
+              <h3 className="text-sm uppercase tracking-widest text-white/80">
+                Core Attributes
+              </h3>
+
+              {/* Radar Chart Placeholder */}
+              <div className="relative h-56 flex items-center justify-center">
+                <div className="absolute inset-0 rounded-xl border border-white/10 bg-black/40" />
+                <span className="relative text-white/30 text-sm">
+                  Radar Chart UI
+                </span>
+              </div>
+
+              {/* Skill Bars */}
+              <div className="flex flex-col gap-4">
+                {[
+                  { label: "Coding", value: 85 },
+                  { label: "Design", value: 70 },
+                  { label: "Tools", value: 65 },
+                  { label: "Communication", value: 80 },
+                ].map((skill) => (
+                  <div key={skill.label} className="flex flex-col gap-1">
+                    <div className="flex justify-between text-xs text-white/60">
+                      <span>{skill.label}</span>
+                      <span>{skill.value}</span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
+                      <div
+                        className="h-full bg-white transition-all duration-700"
+                        style={{ width: `${skill.value}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* ================= RIGHT: EDUCATION & SKILLS ================= */}
+            <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-[0_25px_80px_rgba(0,0,0,0.7)] flex flex-col gap-6">
+              {/* Title */}
+              <h3 className="text-sm uppercase tracking-widest text-white/80">
+                Education & Skills
+              </h3>
+
+              {/* Timeline */}
+              <div className="flex flex-col gap-6">
+                {[
+                  { title: "Bachelor’s Degree", subtitle: "Software Engineering" },
+                  { title: "Internship", subtitle: "Web Development" },
+                  { title: "UI/UX Designer", subtitle: "Freelance Projects" },
+                  { title: "Web Developer", subtitle: "Personal & Team Projects" },
+                ].map((item, i) => (
+                  <div key={i} className="relative pl-6">
+                    <span className="absolute left-0 top-1.5 h-2 w-2 rounded-full bg-white" />
+                    <span className="absolute left-[3px] top-4 bottom-0 w-px bg-white/20" />
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm text-white">{item.title}</span>
+                      <span className="text-xs text-white/50">{item.subtitle}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
