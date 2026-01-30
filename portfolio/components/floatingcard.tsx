@@ -119,9 +119,9 @@ export default function FloatingCard() {
               {/* TEXT GRID */}
               <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-10 text-sl leading-relaxed">
                 <p className="text-white/70">
-                  Aspiring Full Stack and Game Developer with a strong interest in building creative, efficient, 
-                  and user-centered digital experiences, and a proven ability to communicate clearly 
-                  and work effectively with diverse individuals.
+                  Software Engineering student with a strong interest in building creative, efficient, 
+                  and user-centered digital experiences, supported by strong communication skills and 
+                  the ability to collaborate effectively with individuals from diverse backgrounds.
                 </p>
 
                 <span className="h-full w-px bg-white/20" />

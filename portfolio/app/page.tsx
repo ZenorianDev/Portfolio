@@ -91,7 +91,7 @@ export default function HomePage() {
           </span>
 
           {/* Center */}
-          <ul className="hidden md:flex items-center gap-14 text-xm tracking-widest text-neutral-300">
+          <ul className="hidden md:flex items-center gap-14 text-xm font-semibold tracking-widest text-neutral-300">
             {SECTIONS.map((id) => (
               <li key={id}>
                 <a
@@ -142,7 +142,7 @@ export default function HomePage() {
             </h1>
 
             <p className="max-w-xm text-neutral-300 text-sl leading-relaxed">
-              Aspiring Full Stack Developer | Game Developer
+              Software Engineering Student | Strong Communication & Technical Skills
             </p>
 
             <a
