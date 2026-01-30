@@ -100,7 +100,7 @@ export default function HomePage() {
           </div>
 
           {/* Name block */}
-          <div className="flex flex-col gap-6 top-2 -translate-y-1/4">
+          <div className="flex flex-col gap-6 top-4 -translate-y-1/3">
             <h1 className="text-[clamp(3.2rem,6vw,6.4rem)] font-extrabold leading-none tracking-tight">
               REANNE <br />
               <span className="block ml-12 md:ml-24">MARTINEZ</span>
@@ -109,18 +109,11 @@ export default function HomePage() {
             <p className="max-w-xm text-neutral-300 text-sl font-semibold leading-relaxed">
               Software Engineering Student | Strong Communication & Technical Skills
             </p>
-
-            <a
-              href="#contact"
-              className="mt-2 inline-flex w-fit items-center justify-center rounded-full border border-white/30 px-7 py-2 text-xm tracking-wide transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40"
-            >
-              Contact me
-            </a>
           </div>
         </div>
 
         {/* ---------- RIGHT CONTROL PANEL ---------- */}
-        <div className="absolute right-48 top-1/3 z-30 hidden -translate-y-1/2 flex-col gap-10 lg:flex">
+        <div className="absolute right-48 top-1/3 z-30 hidden -translate-y-1/3 flex-col gap-10 lg:flex">
           {/* Counter + Arrows */}
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-6 text-5xl tracking-widest">
@@ -162,15 +155,23 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* View Resume */}
-          <a
-            href="https://www.canva.com/design/DAGzKZjBSAA/TUOxOy9U9QUN0KzJre8xsQ/edit?utm_content=DAGzKZjBSAA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sl font-semibold uppercase tracking-widest text-neutral-400 transition hover:text-white"
-          >
-            View Resume
-          </a>
+          {/* Buttons row */}
+          <div className="flex items-center gap-6">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-2 text-xm tracking-wide transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/40"
+            >
+              Contact me
+            </a>
+            <a
+              href="https://www.canva.com/design/DAGzKZjBSAA/TUOxOy9U9QUN0KzJre8xsQ/edit?utm_content=DAGzKZjBSAA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold uppercase tracking-widest text-neutral-400 transition hover:text-white"
+            >
+              View Resume
+            </a>
+          </div>
         </div>
 
         {/* ---------- RIGHT VERTICAL SECTION INDICATORS ---------- */}
