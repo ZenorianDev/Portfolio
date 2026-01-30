@@ -18,24 +18,23 @@ export default function FloatingCard() {
     const midX = rect.width / 2;
     const midY = rect.height / 2;
 
-    // MICRO tilt only
-    const rotateY = ((x - midX) / midX) * 3;
-    const rotateX = -((y - midY) / midY) * 3;
+    // Ultra-subtle premium tilt
+    const rotateY = ((x - midX) / midX) * 2;
+    const rotateX = -((y - midY) / midY) * 2;
 
     card.style.transform = `
-      perspective(1200px)
+      perspective(1400px)
       rotateX(${rotateX}deg)
       rotateY(${rotateY}deg)
-      translateZ(6px)
+      translateZ(4px)
     `;
 
-    // RGB glow subtly shifts, not flashlight
+    // Cursor-aligned soft white glow
     glow.style.background = `
       radial-gradient(
-        180px circle at ${x}px ${y}px,
-        rgba(168,85,247,0.7),
-        rgba(34,211,238,0.45),
-        rgba(236,72,153,0.35),
+        140px circle at ${x}px ${y}px,
+        rgba(255,255,255,0.35),
+        rgba(255,255,255,0.18),
         transparent 65%
       )
     `;
@@ -47,19 +46,19 @@ export default function FloatingCard() {
     if (!card || !glow) return;
 
     card.style.transform = `
-      perspective(1200px)
+      perspective(1400px)
       rotateX(0deg)
       rotateY(0deg)
       translateZ(0px)
     `;
 
-    // Back to soft ambient glow
+    // Ambient border glow baseline
     glow.style.background = `
       linear-gradient(
         135deg,
-        rgba(168,85,247,0.7),
-        rgba(34,211,238,0.5),
-        rgba(236,72,153,0.45)
+        rgba(255,255,255,0.14),
+        rgba(255,255,255,0.06),
+        rgba(255,255,255,0.14)
       )
     `;
   };
@@ -74,13 +73,23 @@ export default function FloatingCard() {
         {/* Glow layer */}
         <div
           ref={glowRef}
-          className="pointer-events-none absolute inset-0 z-10 rounded-2xl transition-opacity duration-300"
+          className="pointer-events-none absolute -inset-[1px] rounded-2xl blur-md transition-all duration-200"
+          style={{
+            background: `
+              linear-gradient(
+                135deg,
+                rgba(255,255,255,0.14),
+                rgba(255,255,255,0.06),
+                rgba(255,255,255,0.14)
+              )
+            `,
+          }}
         />
 
         {/* Card */}
         <div
           ref={cardRef}
-          className="relative z-20 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_25px_80px_rgba(0,0,0,0.7)] transition-transform duration-150 ease-out will-change-transform"
+          className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_25px_80px_rgba(0,0,0,0.7)] transition-transform duration-150 ease-out will-change-transform"
         >
           {/* Glass reflection */}
           <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 via-transparent to-black/40" />
@@ -108,7 +117,7 @@ export default function FloatingCard() {
               </div>
 
               {/* TEXT GRID */}
-              <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-10 text-sm leading-relaxed">
+              <div className="grid grid-cols-[1fr_auto_1fr] items-start gap-10 text-sl leading-relaxed">
                 <p className="text-white/70">
                   I&apos;m an aspiring Full Stack Developer and Game Developer with a
                   deep interest in designing and building creative, efficient, and
