@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const SECTIONS = ["home", "about", "projects", "contact"] as const;
@@ -12,9 +12,38 @@ export default function Navbar({
   activeSection: SectionId;
 }) {
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Background blur after scroll
+      setIsScrolled(currentScrollY > 10);
+
+      // Hide on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [lastScrollY]);
 
   return (
-    <header className="absolute top-0 left-0 z-50 w-full">
+    <header
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300
+        ${isVisible ? "translate-y-0" : "-translate-y-full"}
+        ${isScrolled ? "bg-black/60 backdrop-blur-xl" : "bg-transparent"}
+      `}
+    >
       <nav
         className="mx-auto flex h-20 max-w-[92rem] items-center justify-between px-6 md:px-12"
         aria-label="Primary navigation"
