@@ -127,8 +127,6 @@ export default function FloatingCard() {
 
             {/* ================= ICON COLUMN ================= */}
             <div className="flex items-center gap-8">
-              <span className="h-full w-px bg-white/20" />
-
               <div className="flex flex-col items-center gap-4">
                 <a
                   href="https://github.com/"
