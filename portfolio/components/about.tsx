@@ -38,7 +38,7 @@ export default function About() {
               </span>
             </div>
 
-            <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40 h-40 md:h-48">
+            <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40 h-40 md:h-56">
               <Image
                 src="/profile.jpg"
                 alt="Profile"
