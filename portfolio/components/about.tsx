@@ -1,5 +1,8 @@
 "use client";
 
+import React from "react";
+import Image from "next/image";
+
 export default function About() {
   return (
     <section
@@ -31,23 +34,27 @@ export default function About() {
                 Personal Background
               </h3>
               <span className="text-[10px] md:text-xs text-white/40">
-                LEVEL 6
+                LEVEL 20
               </span>
             </div>
 
-            <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40 h-40 md:h-48 flex items-center justify-center">
-              <span className="text-white/30 text-xs md:text-sm">
-                Profile Image
-              </span>
+            <div className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40 h-40 md:h-48">
+              <Image
+                src="/profile.jpg"
+                alt="Profile"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
 
             <div className="flex flex-col gap-3 text-xs md:text-sm text-white/70">
               {[
-                ["Age", "—"],
-                ["Birthday", "—"],
+                ["Age", "20"],
+                ["Birthday", "August 2005"],
                 ["Location", "Philippines"],
-                ["Email", "reanne@email.com"],
-                ["Role", "Web Developer"],
+                ["Email", "reannemartinez18@gmail.com"],
+                ["Role", "Full-Stack Developer"],
               ].map(([label, value]) => (
                 <div key={label} className="flex justify-between">
                   <span className="text-white/40">{label}</span>
@@ -72,10 +79,10 @@ export default function About() {
 
             <div className="flex flex-col gap-4">
               {[
-                { label: "Coding", value: 85 },
-                { label: "Design", value: 70 },
-                { label: "Tools", value: 65 },
-                { label: "Communication", value: 80 },
+                { label: "Coding", value: 75 },
+                { label: "Design", value: 85 },
+                { label: "Tools", value: 80 },
+                { label: "Communication", value: 85 },
               ].map((skill) => (
                 <div key={skill.label} className="flex flex-col gap-1">
                   <div className="flex justify-between text-[11px] md:text-xs text-white/60">
