@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import RadarChart from "./RadarChart";
 
 export default function About() {
   return (
@@ -70,11 +71,15 @@ export default function About() {
               Core Attributes
             </h3>
 
-            <div className="relative h-44 md:h-56 flex items-center justify-center">
-              <div className="absolute inset-0 rounded-xl border border-white/10 bg-black/40" />
-              <span className="relative text-white/30 text-xs md:text-sm">
-                Radar Chart UI
-              </span>
+            <div className="relative h-44 md:h-56">
+              <RadarChart
+                data={[
+                  { label: "Coding", value: 75 },
+                  { label: "Design", value: 85 },
+                  { label: "Tools", value: 80 },
+                  { label: "Communication", value: 85 },
+                ]}
+              />
             </div>
 
             <div className="flex flex-col gap-4">
