@@ -4,9 +4,9 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative min-h-screen px-6 md:px-12 py-28 md:py-36"
+      className="relative min-h-screen px-6 md:px-12 py-28 md:py-12"
     >
-      <div className="mx-auto max-w-[92rem] flex flex-col gap-12">
+      <div className="mx-auto max-w-[72rem] flex flex-col gap-12">
         {/* ---------- HEADER ---------- */}
         <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_25px_80px_rgba(0,0,0,0.7)]">
           <h2 className="text-xl md:text-3xl font-semibold tracking-wide">
