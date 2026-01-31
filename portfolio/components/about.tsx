@@ -12,7 +12,7 @@ export default function About() {
     >
       <div className="mx-auto max-w-[72rem] flex flex-col gap-12">
         {/* ---------- HEADER ---------- */}
-        <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-[0_25px_80px_rgba(0,0,0,0.7)]">
+        <div className="relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-5 md:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.7)]">
           <h2 className="text-xl md:text-3xl font-semibold tracking-wide">
             About Me
           </h2>
@@ -29,7 +29,7 @@ export default function About() {
         {/* ---------- GRID ROW ---------- */}
         <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.2fr_0.9fr] gap-6 md:gap-8">
           {/* ================= LEFT ================= */}
-          <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 md:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.7)] flex flex-col gap-6">
+          <div className="relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-5 md:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.7)] flex flex-col gap-6">
             <div className="flex items-center justify-between">
               <h3 className="text-xs md:text-sm uppercase tracking-widest text-white/80">
                 Personal Background
@@ -66,7 +66,7 @@ export default function About() {
           </div>
 
           {/* ================= CENTER ================= */}
-          <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 md:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.7)] flex flex-col gap-6">
+          <div className="relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-5 md:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.7)] flex flex-col gap-6">
             <h3 className="text-xs md:text-sm uppercase tracking-widest text-white/80">
               Core Attributes
             </h3>
@@ -74,21 +74,23 @@ export default function About() {
             <div className="relative h-44 md:h-56">
               <RadarChart
                 data={[
-                  { label: "Coding", value: 75 },
-                  { label: "Design", value: 85 },
-                  { label: "Tools", value: 80 },
-                  { label: "Communication", value: 85 },
+                  { label: "Coding", value: 83 },
+                  { label: "Design", value: 88 },
+                  { label: "Communication", value: 89 },
+                  { label: "Tools", value: 85 },
+                  
                 ]}
               />
             </div>
 
+            {/* Optional: horizontal progress bars */}
             <div className="flex flex-col gap-4">
               {[
-                { label: "Coding", value: 75 },
-                { label: "Design", value: 85 },
-                { label: "Tools", value: 80 },
-                { label: "Communication", value: 85 },
-              ].map((skill) => (
+                { label: "Coding", value: 83 },
+                { label: "Design", value: 88 },
+                { label: "Tools", value: 85 },
+                { label: "Communication", value: 89 },
+              ].map(skill => (
                 <div key={skill.label} className="flex flex-col gap-1">
                   <div className="flex justify-between text-[11px] md:text-xs text-white/60">
                     <span>{skill.label}</span>
@@ -106,26 +108,26 @@ export default function About() {
           </div>
 
           {/* ================= RIGHT ================= */}
-          <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 md:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.7)] flex flex-col gap-6">
+          <div className="relative rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-5 md:p-6 shadow-[0_25px_80px_rgba(0,0,0,0.7)] flex flex-col gap-6">
             <h3 className="text-xs md:text-sm uppercase tracking-widest text-white/80">
               Education & Skills
             </h3>
 
             <div className="flex flex-col gap-6">
               {[
-                { title: "Bachelor’s Degree", subtitle: "Software Engineering" },
-                { title: "Internship", subtitle: "Web Development" },
-                { title: "UI/UX Designer", subtitle: "Freelance Projects" },
-                { title: "Web Developer", subtitle: "Personal & Team Projects" },
+                { title: "Bachelor's Degree", subtitle: "Software Engineering — Lithan Academy Singapore" },
+                { title: "Bachelor of Science in Information Technology", subtitle: "Specialized in Software Engineering — First City Providential College" },
+                { title: "Art Commission", subtitle: "Freelance Projects" },
+                { title: "Web & Game Developer", subtitle: "Personal & Team Projects" },
               ].map((item, i) => (
                 <div key={i} className="relative pl-6">
                   <span className="absolute left-0 top-1.5 h-2 w-2 rounded-full bg-white" />
                   <span className="absolute left-[3px] top-4 bottom-0 w-px bg-white/20" />
                   <div className="flex flex-col gap-1">
-                    <span className="text-xs md:text-sm text-white">
+                    <span className="text-xs md:text-sm text-white font-semibold">
                       {item.title}
                     </span>
-                    <span className="text-[11px] md:text-xs text-white/50">
+                    <span className="text-[11px] md:text-sm text-white/50">
                       {item.subtitle}
                     </span>
                   </div>
