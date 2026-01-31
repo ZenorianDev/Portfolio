@@ -6,6 +6,7 @@ import Hero from "../components/hero";
 import About from "../components/about";
 import Projects from "../components/projects";
 import Contact from "../components/contact";
+import Footer from "../components/footer";
 
 const SECTIONS = ["home", "about", "projects", "contact"] as const;
 type SectionId = (typeof SECTIONS)[number];
@@ -41,6 +42,7 @@ export default function Home() {
       <About />
       <Projects />
       <Contact />
+      <Footer />
     </main>
   );
 }

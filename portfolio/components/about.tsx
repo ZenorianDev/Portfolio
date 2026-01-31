@@ -117,7 +117,7 @@ export default function About() {
               {[
                 { title: "Bachelor's Degree", subtitle: "Software Engineering — Lithan Academy Singapore" },
                 { title: "Bachelor of Science in Information Technology", subtitle: "Specialized in Software Engineering — First City Providential College" },
-                { title: "Art Commission", subtitle: "Freelance Projects" },
+                { title: "Commission", subtitle: "Freelance Projects" },
                 { title: "Web & Game Developer", subtitle: "Personal & Team Projects" },
               ].map((item, i) => (
                 <div key={i} className="relative pl-6">

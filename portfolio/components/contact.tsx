@@ -22,7 +22,7 @@ export default function Contact() {
           <div className="flex flex-col gap-3 pt-2 text-xs md:text-sm text-white/70">
             <div>
               <span className="text-white/40">Email:</span>{" "}
-              reanne@example.com
+              reannemartinez18@gmail.com
             </div>
             <div>
               <span className="text-white/40">Location:</span> Philippines
