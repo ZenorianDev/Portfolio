@@ -7,17 +7,17 @@ import { useRef } from "react";
 const PROJECTS = [
   {
     title: "North Sussex Judo",
-    desc: "An immersive, stat-based portfolio system inspired by RPG UI patterns and modern UI motion.",
-    tech: ["Next.js", "Tailwind", "Framer Motion"],
+    desc: "North Sussex Judo is a Java-based program that allows users to enter and manage athlete information for a judo training club.",
+    tech: ["Java"],
     image: "/nsj.png",
-    repo: "https://github.com/yourname/gamified-portfolio",
+    repo: "https://github.com/ZenorianDev/North-Sussex-Judo",
   },
   {
     title: "DoBu Martial Arts",
-    desc: "High-conversion marketing site with responsive layout and animated interaction patterns.",
-    tech: ["React", "TypeScript", "GSAP"],
-    image: "/projects/landing.png",
-    repo: "https://github.com/yourname/business-landing",
+    desc: "DoBu Martial Arts is a modern and user-friendly website designed to provide an engaging experience for visitors interested in martial arts training.",
+    tech: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+    image: "/dobu.png",
+    repo: "https://github.com/ZenorianDev/DoBuMartialArts",
   },
   {
     title: "Enomy-Finances",
