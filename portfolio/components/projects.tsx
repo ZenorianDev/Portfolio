@@ -62,8 +62,8 @@ export default function Projects() {
             Projects
           </h2>
           <p className="text-white/60 leading-relaxed text-sm md:text-base">
-            A curated selection of work blending clean UI, performance, and
-            interactive design.
+            Hey there! Each of these project reflects my passion for building functional, user-centered solutions through thoughtful design, 
+            problem-solving, and collaboration.
           </p>
         </div>
 

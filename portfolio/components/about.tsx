@@ -16,12 +16,10 @@ export default function About() {
           <h2 className="text-xl md:text-3xl font-semibold tracking-wide">
             About Me
           </h2>
-          <p className="mt-4 max-w-4xl text-white/70 leading-relaxed text-sm md:text-base">
-            I aspire to become the best developer and designer I can possibly be.
-            With a focus on logic, creativity, and growth, I strive to build
-            impactful projects and continuously improve my skills. My mission is
-            to create intuitive solutions that make a meaningful difference in the
-            digital world.
+          <p className="mt-4 max-w-6xl text-white/70 leading-relaxed text-sm md:text-base">
+            I’m a Software Engineering student passionate about building clean, user-centered digital experiences through thoughtful design and development. 
+            I thrive in environments that blend problem-solving, collaboration, and adaptability, working effectively with diverse individuals to deliver meaningful solutions. 
+            Always eager to learn and grow, I enjoy creating digital work that is both functional and impactful.
           </p>
           <span className="absolute bottom-0 left-6 right-6 h-px bg-white/10" />
         </div>
